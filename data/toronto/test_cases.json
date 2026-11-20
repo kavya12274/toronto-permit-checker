@@ -1,0 +1,352 @@
+[
+ {
+  "Test ID": "T-01",
+  "Project type": "Shed",
+  "Scenario": "Small storage shed",
+  "Key inputs": "12 m², 1 storey, detached, storage only, no plumbing",
+  "Expected result": "No permit needed; zoning still checked",
+  "Rules tested": "P-02",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-02",
+  "Project type": "Shed",
+  "Scenario": "Bigger shed",
+  "Key inputs": "18 m² shed",
+  "Expected result": "Permit needed",
+  "Rules tested": "P-01",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-03",
+  "Project type": "Deck",
+  "Scenario": "Low deck",
+  "Key inputs": "Deck 0.45 m above ground, not an exit",
+  "Expected result": "No permit needed",
+  "Rules tested": "P-04",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-04",
+  "Project type": "Deck",
+  "Scenario": "High deck",
+  "Key inputs": "Deck 0.9 m above ground",
+  "Expected result": "Permit needed",
+  "Rules tested": "P-04",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-05",
+  "Project type": "Rear addition",
+  "Scenario": "Side setback too small (RD)",
+  "Key inputs": "RD zone, frontage 10 m, side setback 0.8 m",
+  "Expected result": "FAIL: needs 0.9 m. Fix-it: move wall 0.1 m in",
+  "Rules tested": "RD-18",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-06",
+  "Project type": "Rear addition",
+  "Scenario": "Side setback OK (RD)",
+  "Key inputs": "RD zone, frontage 15 m, side setbacks 1.5 m",
+  "Expected result": "PASS",
+  "Rules tested": "RD-20",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-07",
+  "Project type": "Second-storey addition",
+  "Scenario": "Too tall, no HT value",
+  "Key inputs": "RD zone, no HT value, height 10.5 m",
+  "Expected result": "FAIL: max 10.0 m",
+  "Rules tested": "RD-02",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-08",
+  "Project type": "Rear addition",
+  "Scenario": "Rear setback on deep lot",
+  "Key inputs": "RD zone, lot depth 40 m, rear setback 9 m",
+  "Expected result": "FAIL: needs 10.0 m (25% of 40 m > 7.5 m)",
+  "Rules tested": "RD-16",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-09",
+  "Project type": "Rear addition",
+  "Scenario": "Rear setback on shallow lot",
+  "Key inputs": "RD zone, lot depth 28 m, rear setback 7.5 m",
+  "Expected result": "PASS (25% = 7.0 m, so 7.5 m rules)",
+  "Rules tested": "RD-16",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-10",
+  "Project type": "Rear addition",
+  "Scenario": "Building too long",
+  "Key inputs": "RD zone, frontage 11 m, building length 18 m",
+  "Expected result": "FAIL: max 17.0 m (2.0 m extension only for frontage >12 m)",
+  "Rules tested": "RD-09, RD-10",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-11",
+  "Project type": "Rear addition",
+  "Scenario": "FSI over limit (R zone)",
+  "Key inputs": "R zone, no 'd' value, detached house, FSI 0.65",
+  "Expected result": "FAIL: max 0.6",
+  "Rules tested": "R-06",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-12",
+  "Project type": "Rear addition",
+  "Scenario": "FSI with secondary suite",
+  "Key inputs": "Same as T-11 but house has a secondary suite",
+  "Expected result": "FSI limit doesn't apply -> PASS for FSI",
+  "Rules tested": "R-06",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-13",
+  "Project type": "Garden suite",
+  "Scenario": "Too tall and too close",
+  "Key inputs": "Suite 5.0 m tall, 6.0 m from house",
+  "Expected result": "FAIL height (max 4.0 m within 7.5 m) and FAIL separation (needs 7.5 m if >4 m)",
+  "Rules tested": "GS-10, GS-11",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-14",
+  "Project type": "Garden suite",
+  "Scenario": "Two-storey suite OK",
+  "Key inputs": "Suite 6.0 m tall, 2 storeys, 8.0 m from house",
+  "Expected result": "PASS height (6.3 m) and separation (7.5 m)",
+  "Rules tested": "GS-10, GS-12, GS-13",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-15",
+  "Project type": "Garden suite",
+  "Scenario": "One-storey too big",
+  "Key inputs": "One-storey suite, 70 m²",
+  "Expected result": "FAIL: max 60 m² for one storey",
+  "Rules tested": "GS-16",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-16",
+  "Project type": "Garden suite",
+  "Scenario": "Rear setback too small",
+  "Key inputs": "Lot depth 35 m, rear setback 1.0 m",
+  "Expected result": "FAIL: needs 1.5 m",
+  "Rules tested": "GS-03",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-17",
+  "Project type": "Garden suite",
+  "Scenario": "Side setback with windows",
+  "Key inputs": "Frontage 10 m, side wall with windows, setback 1.0 m",
+  "Expected result": "FAIL: needs greater of 1.5 m or 1.0 m = 1.5 m",
+  "Rules tested": "GS-05",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-18",
+  "Project type": "Garden suite",
+  "Scenario": "Wide lot side setback",
+  "Key inputs": "Frontage 25 m, side wall with windows, setback 2.0 m",
+  "Expected result": "FAIL: needs 2.5 m (10% of 25 m)",
+  "Rules tested": "GS-05",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-19",
+  "Project type": "Laneway suite",
+  "Scenario": "Too long",
+  "Key inputs": "Laneway suite 11 m long, 7 m wide",
+  "Expected result": "FAIL length (max 10.0 m); PASS width",
+  "Rules tested": "LS-07, LS-08",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-20",
+  "Project type": "Laneway suite",
+  "Scenario": "Not enough lane frontage",
+  "Key inputs": "Lot abuts lane for 3.0 m",
+  "Expected result": "Laneway suite not allowed; suggest garden suite rules",
+  "Rules tested": "LS-01",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-21",
+  "Project type": "Garden + laneway",
+  "Scenario": "Two suites",
+  "Key inputs": "Lot has a garden suite and wants a laneway suite",
+  "Expected result": "FAIL: only one ancillary building with a suite",
+  "Rules tested": "GS-01",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-22",
+  "Project type": "Secondary suite",
+  "Scenario": "Suite too big",
+  "Key inputs": "2-storey detached house, suite = 50% of interior floor area",
+  "Expected result": "FAIL: max 45%",
+  "Rules tested": "SS-03",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-23",
+  "Project type": "Secondary suite",
+  "Scenario": "Whole basement exception",
+  "Key inputs": "1-storey detached house, suite = whole basement",
+  "Expected result": "PASS (exception)",
+  "Rules tested": "SS-04",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-24",
+  "Project type": "Shed",
+  "Scenario": "Tall shed close to house",
+  "Key inputs": "Shed 3.0 m tall, 1.0 m from house",
+  "Expected result": "FAIL: max 2.5 m within 1.8 m of house",
+  "Rules tested": "G-20",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-25",
+  "Project type": "Pool",
+  "Scenario": "Pool too close to rear line",
+  "Key inputs": "Pool rear setback 1.0 m (regular lot)",
+  "Expected result": "FAIL: needs 1.2 m",
+  "Rules tested": "G-28",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-26",
+  "Project type": "Driveway",
+  "Scenario": "Driveway too wide",
+  "Key inputs": "Frontage 15 m, driveway 7.0 m wide",
+  "Expected result": "FAIL: max 6.0 m",
+  "Rules tested": "G-35",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-27",
+  "Project type": "Any",
+  "Scenario": "Front yard landscaping",
+  "Key inputs": "Frontage 10 m, 45% of front yard landscaped",
+  "Expected result": "FAIL: needs 50%",
+  "Rules tested": "G-13",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-28",
+  "Project type": "Any",
+  "Scenario": "Heritage district",
+  "Key inputs": "Address inside an HCD",
+  "Expected result": "FLAG: heritage permit + run vibes check vs HCD plan",
+  "Rules tested": "AP-04",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-29",
+  "Project type": "Any",
+  "Scenario": "TRCA area",
+  "Key inputs": "Address inside TRCA regulated area",
+  "Expected result": "FLAG: TRCA permit",
+  "Rules tested": "AP-05",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-30",
+  "Project type": "Any",
+  "Scenario": "Old bylaw property",
+  "Key inputs": "Property shown grey on zoning map",
+  "Expected result": "STOP: no checks run; tell user to contact Toronto Building",
+  "Rules tested": "AP-01",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-31",
+  "Project type": "Secondary suite",
+  "Scenario": "Basement conversion flags",
+  "Key inputs": "Add a basement unit to a house with existing tenants",
+  "Expected result": "Permit needed + FLAGS: Fire Code, ESA, Ch. 662, OBC items marked 'needs human check'",
+  "Rules tested": "P-06, BC-12, AP-11, AP-15",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-32",
+  "Project type": "Any",
+  "Scenario": "Missing information",
+  "Key inputs": "User leaves lot depth blank",
+  "Expected result": "Need more info' for depth-based rules (never PASS by default)",
+  "Rules tested": "RD-16, GS-03",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-33",
+  "Project type": "Rear addition",
+  "Scenario": "Variance path",
+  "Key inputs": "Project fails one setback rule",
+  "Expected result": "Show minor variance path with the four tests",
+  "Rules tested": "AP-08",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-34",
+  "Project type": "Bedroom / basement",
+  "Scenario": "Egress window sill too high",
+  "Key inputs": "Basement bedroom window sill 1100 mm",
+  "Expected result": "FAIL (max 1000 mm), marked 'needs human check'",
+  "Rules tested": "BC-03",
+  "Actual result": "",
+  "Pass?": "0"
+ },
+ {
+  "Test ID": "T-35",
+  "Project type": "Multiplex",
+  "Scenario": "Houseplex bedrooms",
+  "Key inputs": "Triplex with a 4-bedroom unit",
+  "Expected result": "FAIL: max 3 bedrooms per unit for 3+ units",
+  "Rules tested": "RD-30",
+  "Actual result": "",
+  "Pass?": "0"
+ }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "#": "1",
+  "Project type": "Rear addition (1 or 2 storey)",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "Zone rules (RD-/R- rows): height, main wall, length, depth, setbacks, FSI, coverage; 10.5 encroachments",
+  "Other rule sets": "OBC Part 9, trees, heritage, TRCA",
+  "Main forms / guide": "Small residential additions guide; permit form; Schedule 1; Tree Declaration; Energy Efficiency",
+  "Common flags": "Trees, heritage, infill notice",
+  "Build version": "v1"
+ },
+ {
+  "#": "2",
+  "Project type": "Second-storey addition",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "Height, main wall height, storeys, dormers, platforms at 2nd storey",
+  "Other rule sets": "OBC Part 9 (structure, stairs, egress)",
+  "Main forms / guide": "Small residential additions guide",
+  "Common flags": "Heritage, flightpath (downtown)",
+  "Build version": "v1"
+ },
+ {
+  "#": "3",
+  "Project type": "Front porch / front addition",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "Front setback, front encroachments (G-06, G-09), entrance height (RD-06), front landscaping",
+  "Other rule sets": "OBC Part 9 (guards, stairs)",
+  "Main forms / guide": "Small residential additions guide",
+  "Common flags": "Heritage (street-facing)",
+  "Build version": "v1"
+ },
+ {
+  "#": "4",
+  "Project type": "Deck / platform",
+  "Needs a building permit?": "Only if more than 60 cm high (P-04)",
+  "Zoning rules (569-2013)": "Platform height, encroachments, setbacks (G-04 to G-08, G-27), 2nd-storey platform limits",
+  "Other rule sets": "OBC Part 9 guards",
+  "Main forms / guide": "Permit form (if needed)",
+  "Common flags": "Trees",
+  "Build version": "v1"
+ },
+ {
+  "#": "5",
+  "Project type": "Shed / accessory building",
+  "Needs a building permit?": "Only if 15 m² or more, or other triggers (P-01 to P-03)",
+  "Zoning rules (569-2013)": "Ancillary rules G-17 to G-25, R-13",
+  "Other rule sets": "-",
+  "Main forms / guide": "Permit form (if needed)",
+  "Common flags": "Trees",
+  "Build version": "v1"
+ },
+ {
+  "#": "6",
+  "Project type": "Detached garage",
+  "Needs a building permit?": "Yes if over 10 m²",
+  "Zoning rules (569-2013)": "Ancillary rules + garage setbacks (G-26, R-14), garage door width",
+  "Other rule sets": "OBC Part 9",
+  "Main forms / guide": "Permit form",
+  "Common flags": "Lane access, trees",
+  "Build version": "v1"
+ },
+ {
+  "#": "7",
+  "Project type": "Pool",
+  "Needs a building permit?": "Check with City (pool enclosure bylaw)",
+  "Zoning rules (569-2013)": "Pool setbacks and coverage (G-28 to G-30)",
+  "Other rule sets": "Pool enclosure bylaw",
+  "Main forms / guide": "Pool enclosure permit",
+  "Common flags": "Trees, TRCA",
+  "Build version": "v1"
+ },
+ {
+  "#": "8",
+  "Project type": "Garden suite",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "Ch. 150.7 (GS- rows) + rear landscaping",
+  "Other rule sets": "OBC Part 9 incl. fire access; O. Reg. 299/19",
+  "Main forms / guide": "Garden suite guide; permit form",
+  "Common flags": "Trees (big one), TRCA, heritage",
+  "Build version": "v1"
+ },
+ {
+  "#": "9",
+  "Project type": "Laneway suite",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "Ch. 150.8 (LS- rows)",
+  "Other rule sets": "OBC Part 9; O. Reg. 299/19",
+  "Main forms / guide": "New laneway suite guide; permit form",
+  "Common flags": "Trees, lane access",
+  "Build version": "v1"
+ },
+ {
+  "#": "10",
+  "Project type": "Secondary suite (e.g. basement apartment)",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "Ch. 150.10 (SS- rows), parking SS-05",
+  "Other rule sets": "OBC Part 9 (fire separation, egress), Fire Code retrofit",
+  "Main forms / guide": "Interior alterations guide; permit form",
+  "Common flags": "ESA, Fire Code, Ch. 662 if tenants",
+  "Build version": "v1"
+ },
+ {
+  "#": "11",
+  "Project type": "Multiplex conversion (house to 2-4 units)",
+  "Needs a building permit?": "Yes (change of use)",
+  "Zoning rules (569-2013)": "Houseplex rules (RD-03, RD-11, RD-29, RD-30, RD-32), G-38 conversion",
+  "Other rule sets": "OBC Part 9, Fire Code, O. Reg. 299/19",
+  "Main forms / guide": "Permit form; multiplex info page",
+  "Common flags": "ESA, Fire Code, site plan exemption",
+  "Build version": "v1"
+ },
+ {
+  "#": "12",
+  "Project type": "New detached house / houseplex (replacement)",
+  "Needs a building permit?": "Yes + demolition permit",
+  "Zoning rules (569-2013)": "All zone rules; lot frontage/area",
+  "Other rule sets": "OBC Part 9, SB-12 energy",
+  "Main forms / guide": "New house guide; demolition guide",
+  "Common flags": "Demolition control, trees, infill notice",
+  "Build version": "v1"
+ },
+ {
+  "#": "13",
+  "Project type": "Interior alterations / basement finishing",
+  "Needs a building permit?": "Only if triggers in P-06 / P-07",
+  "Zoning rules (569-2013)": "Usually none (unless adding units)",
+  "Other rule sets": "OBC Part 9",
+  "Main forms / guide": "Interior alterations guide",
+  "Common flags": "ESA, plumbing permit",
+  "Build version": "v1"
+ },
+ {
+  "#": "14",
+  "Project type": "Driveway / parking pad",
+  "Needs a building permit?": "Usually no building permit; City approval for curb cut",
+  "Zoning rules (569-2013)": "Driveway width (G-34 to G-36), front landscaping, R-15/R-16",
+  "Other rule sets": "Ch. 918, Ch. 743",
+  "Main forms / guide": "City curb cut / parking pad application",
+  "Common flags": "Trees (city trees on boulevard)",
+  "Build version": "v2"
+ },
+ {
+  "#": "15",
+  "Project type": "Solar panels",
+  "Needs a building permit?": "Yes (solar collector systems)",
+  "Zoning rules (569-2013)": "G-03 height + location",
+  "Other rule sets": "OBC",
+  "Main forms / guide": "Permit form",
+  "Common flags": "Heritage",
+  "Build version": "v2"
+ },
+ {
+  "#": "16",
+  "Project type": "Demolition only",
+  "Needs a building permit?": "Yes",
+  "Zoning rules (569-2013)": "-",
+  "Other rule sets": "Ch. 363 demolition control",
+  "Main forms / guide": "Demolition guide + checklist",
+  "Common flags": "Heritage, trees",
+  "Build version": "v2"
+ }
+]

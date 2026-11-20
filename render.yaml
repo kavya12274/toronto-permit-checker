@@ -1,0 +1,26 @@
+# Tells Render (the free host) how to run the permit checker.
+# On render.com: New -> Blueprint -> pick this GitHub repo. It asks you for ANTHROPIC_API_KEY
+# (paste it there, on Render's website only: never in a file in this repo).
+services:
+  - type: web
+    name: toronto-permit-checker
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py --no-browser
+    healthCheckPath: /api/setup
+    envVars:
+      - key: HOST
+        value: 0.0.0.0            # open to visitors (on your computer it's 127.0.0.1, just you)
+      - key: ANTHROPIC_API_KEY
+        sync: false               # secret: Render asks you to paste it
+      - key: AI_MODEL
+        value: claude-haiku-5-5
+      - key: AI_DRAWING_MODEL
+        value: claude-haiku-5-5
+      - key: AI_BUDGET_USD
+        value: "4.90"             # the app's own guard (the $5 credit with auto-reload off is the real limit)
+      - key: AI_VISITOR_DAILY
+        value: "15"               # AI requests per visitor per day
+      - key: AI_SITE_DAILY_USD
+        value: "0.50"             # the whole site's AI spending per day

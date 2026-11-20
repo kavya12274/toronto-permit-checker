@@ -1,0 +1,83 @@
+{
+ "_about": "Hand-written (not imported). For each project type in the Project Types tab: which form sections to show and which rule groups to run. 'permit' runs first and 'approvals' runs last for every project. Group names are explained in checker/engine.py. Edit this file to change what a project type checks.",
+ "Rear addition (1 or 2 storey)": {
+  "permit": "addition",
+  "sections": ["lot", "house", "permit", "main", "projections", "landscape", "code", "approvals"],
+  "groups": ["zone_main", "projections", "landscape", "code_general"]
+ },
+ "Second-storey addition": {
+  "permit": "addition",
+  "sections": ["lot", "house", "permit", "main", "projections", "code", "approvals"],
+  "groups": ["zone_main", "upper_platforms", "projections", "code_general"]
+ },
+ "Front porch / front addition": {
+  "permit": "addition",
+  "sections": ["lot", "house", "permit", "main", "deck", "projections", "landscape", "code", "approvals"],
+  "groups": ["porch", "projections", "landscape_front", "code_stairs"]
+ },
+ "Deck / platform": {
+  "permit": "deck",
+  "sections": ["lot", "house", "permit", "deck", "code", "approvals"],
+  "groups": ["deck", "code_stairs"]
+ },
+ "Shed / accessory building": {
+  "permit": "shed",
+  "sections": ["lot", "house", "permit", "ancillary", "approvals"],
+  "groups": ["ancillary"]
+ },
+ "Detached garage": {
+  "permit": "accessory",
+  "sections": ["lot", "house", "permit", "ancillary", "driveway", "approvals"],
+  "groups": ["ancillary", "garage"]
+ },
+ "Pool": {
+  "permit": "pool",
+  "sections": ["lot", "house", "permit", "main", "pool", "approvals"],
+  "groups": ["pool"]
+ },
+ "Garden suite": {
+  "permit": "new_building",
+  "sections": ["lot", "house", "permit", "garden", "code", "approvals"],
+  "groups": ["garden", "provincial", "code_suite"]
+ },
+ "Laneway suite": {
+  "permit": "new_building",
+  "sections": ["lot", "house", "permit", "laneway", "garden", "code", "approvals"],
+  "groups": ["laneway", "provincial", "code_suite"]
+ },
+ "Secondary suite (e.g. basement apartment)": {
+  "permit": "secondary_suite",
+  "sections": ["lot", "house", "permit", "secondary", "driveway", "code", "approvals"],
+  "groups": ["secondary", "provincial", "code_suite"]
+ },
+ "Multiplex conversion (house to 2-4 units)": {
+  "permit": "change_of_use",
+  "sections": ["lot", "house", "permit", "main", "multiplex", "code", "approvals"],
+  "groups": ["multiplex", "provincial", "code_suite"]
+ },
+ "New detached house / houseplex (replacement)": {
+  "permit": "new_house",
+  "sections": ["lot", "house", "permit", "main", "projections", "landscape", "driveway", "multiplex", "code", "approvals"],
+  "groups": ["zone_main", "zone_lot", "upper_platforms", "projections", "landscape", "driveway", "multiplex_if_houseplex", "code_general"]
+ },
+ "Interior alterations / basement finishing": {
+  "permit": "interior",
+  "sections": ["house", "permit", "code", "approvals"],
+  "groups": ["code_interior"]
+ },
+ "Driveway / parking pad": {
+  "permit": "driveway",
+  "sections": ["lot", "house", "permit", "driveway", "landscape", "approvals"],
+  "groups": ["driveway", "landscape_front"]
+ },
+ "Solar panels": {
+  "permit": "solar",
+  "sections": ["lot", "house", "permit", "solar", "approvals"],
+  "groups": ["solar"]
+ },
+ "Demolition only": {
+  "permit": "demolition",
+  "sections": ["house", "permit", "approvals"],
+  "groups": []
+ }
+}

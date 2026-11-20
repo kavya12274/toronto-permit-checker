@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Permit Pre-check Report</title>
+  <link rel="stylesheet" href="/web/style.css">
+  <script>try { const t = localStorage.getItem("permitTheme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <style>
+    body { background: var(--card); }
+    .page { max-width: 960px; margin: 0 auto; padding: 24px; }
+    .label { background: var(--fail-bg); border: 2px solid var(--fail); color: var(--fail); font-weight: 800; font-size: 1.1rem;
+             padding: 10px 14px; text-align: center; border-radius: 12px; margin: 10px 0 18px; }
+    h1 { font-size: 1.6rem; margin: 0; }
+    h2 { border-bottom: 2px solid var(--accent); padding-bottom: 4px; margin-top: 28px; }
+    .answer { font-size: 1.3rem; font-weight: 700; margin: 4px 0; }
+    .stop { padding-left: 18px; }
+    dl.info { display: grid; grid-template-columns: 220px 1fr; gap: 4px 12px; margin: 0; }
+    dl.info dt { color: var(--muted); }
+    dl.info dd { margin: 0; font-weight: 600; }
+    .no-print { margin: 12px 0; }
+    @media print {
+      .no-print { display: none; }
+      .page { padding: 0; }
+      h2 { break-after: avoid; }
+      tr { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+      @page { margin: 14mm; }
+    }
+  </style>
+</head>
+<body>
+<div class="page" id="page"><p>Loading… (run a check on the main page first)</p></div>
+<script src="/web/common.js"></script>
+<script>
+// The report shows the last check from the main page (kept in this browser only).
+// AI results saved by the main page (only if you ran them)
+function vibesSection() {
+  const v = recall("permitVibes");
+  if (!v || !v.result) return `<p class="muted">Not run. ${esc("Press Run vibes check on the results page to add AI comments that quote Toronto's guidelines.")}</p>`;
+  return v.result.comments.map(c => `<p><b>${esc(c.topic)}</b> (${esc(c.tone)}): ${esc(c.comment)}<br>
+      <span class="muted">“${esc(c.quote)}”: ${esc(c.guideline)}${c.kind === "quoted" ? "" : " (this tool's summary, not official wording)"}</span></p>`).join("")
+    + `<p class="muted">${esc(v.result.note)}</p>`;
+}
+function shadowSection(s) {
+  if (!s || !s.ready) return "";
+  return `<h2>Shadow preview (rough, no AI)</h2><p>Shadow of ${esc(s.about || `a ${s.height_m} m tall building`)}.</p>
+    <table class="simple"><thead><tr><th>When (sun time)</th><th>Sun height</th><th>Shadow length</th></tr></thead><tbody>${
+      s.times.map(t => `<tr><td>${esc(t.label)}</td><td>${t.sun_height_deg}°</td><td>${t.length_m} m</td></tr>`).join("")}</tbody></table>
+    <p class="muted">${esc(s.note)}</p>`;
+}
+function drawingsSection() {
+  const d = recall("permitDrawings");
+  if (!d) return "";
+  const word = {shown: "Shown", missing: "MISSING", unclear: "Unclear"};
+  return `<h2>Drawings (AI read, not a plans review)</h2><p class="muted">${esc((d.files || []).join(", "))}, read ${esc(d.when)}.</p>
+    ${d.summary ? `<p>${esc(d.summary)}</p>` : ""}
+    ${(d.conflicts || []).length ? `<p><b>Things that don't match:</b></p><ul>${d.conflicts.map(c => `<li>${esc(c.what)}</li>`).join("")}</ul>` : ""}
+    <table class="simple"><thead><tr><th>Checklist item</th><th>AI's read</th><th>Note</th></tr></thead><tbody>${
+      (d.checklist || []).map(c => `<tr><td>${esc(c.item)}</td><td>${word[c.status] || c.status}</td><td>${esc(c.note)}</td></tr>`).join("")}</tbody></table>`;
+}
+
+function recall(key) { try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; } }
+
+async function draw() {
+  const r = recall("permitCheckerReport");
+  const page = document.getElementById("page");
+  if (!r) { page.innerHTML = "<p>No results yet. Go back to the main page and press “Check my project”.</p>"; return; }
+  try { TRANSLATIONS = (await (await fetch("/api/setup")).json()).translations || {}; } catch (e) {}
+  const i = r.inputs || {};
+  const today = new Date().toLocaleDateString("en-CA", {year: "numeric", month: "long", day: "numeric"});
+  const row = (k, v) => `<dt>${esc(k)}</dt><dd>${esc(v ?? "—")}</dd>`;
+
+  let html = `
+    <div class="no-print buttons"><button class="primary" onclick="window.print()">Print / Save as PDF</button>
+      <span class="muted" style="align-self:center">In the print window, choose “Save as PDF”.</span></div>
+    <h1>Zoning and Permit Pre-check (draft)</h1>
+    <p class="muted">Toronto low-rise residential · Modelled on the City's Zoning Applicable Law Certificate pre-check · Made ${esc(today)}</p>
+    <div class="label">${esc(r.label)}</div>
+
+    <h2>1. Property and project</h2>
+    <dl class="info">
+      ${row("Address", i.address)}
+      ${row("Project type", r.project_type)}
+      ${row("Description", i.description)}
+      ${row("Zone label", i.zone_label || i.zone)}
+      ${row("Overlay values", `HT ${i.ht ?? "?"} · ST ${i.st ?? "?"} · coverage ${i.coverage_overlay ?? "?"} · f ${i.f ?? "?"} · a ${i.a ?? "?"} · d ${i.d ?? "?"} · u ${i.u ?? "?"}`)}
+      ${row("Lot", `frontage ${i.lot_frontage ?? "?"} m · depth ${i.lot_depth ?? "?"} m · area ${i.lot_area ?? "?"} m²`)}
+      ${row("Building type", i.building_type)}
+    </dl>`;
+
+  if (r.stopped) {
+    html += `<h2>2. Result</h2><div class="stop">STOP: ${esc(r.results[0]?.message || "")}</div>`;
+  } else {
+    html += `
+    <h2>2. Does it need a building permit?</h2>
+    <p class="answer">${esc(r.permit?.answer)}</p><p>${esc(r.permit?.reason)}</p><p class="muted">${esc(r.permit?.note)}</p>
+
+    <h2>3. Compliance summary</h2>
+    <p><b>${esc(r.overall)}</b></p>${countsHtml(r.counts)}
+    <p class="muted">Every line shows the rule ID, the by-law section, the limit, your value and how confident we are in the
+      rule (High / Verify / Needs human check). NEED MORE INFO is not a pass.</p>
+    ${groupedResults(r)}`;
+
+    if (r.variance) {
+      const v = r.variance;
+      html += `<h2>4. Minor variance path</h2><p>${esc(v.intro)}</p>
+        <ol>${v.four_tests.map(x => `<li><b>${esc(x.test)}</b> ${esc(x.question)}</li>`).join("")}</ol>
+        <ol>${v.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol><p class="muted">${esc(v.source)}</p>`;
+    }
+    if (r.diagram && r.diagram.svg) html += `<h2>Where you can build</h2>${r.diagram.svg}<p class="muted">${esc(r.diagram.caption)}</p>`;
+    if (r.costs) html += `<h2>Cost and timeline (rough estimate)</h2><table class="simple"><tbody>${
+      r.costs.lines.map(l => `<tr><td>${esc(l.item)}</td><td><b>${esc(l.amount)}</b></td><td>${esc(l.note)}</td></tr>`).join("")
+      }</tbody></table><p class="muted">${esc(r.costs.disclaimer)}</p>`;
+  }
+
+  if (r.roadmap && !r.stopped) {
+    const rm = r.roadmap, c = rm.checklist;
+    html += `<h2>Permit roadmap</h2>
+      <ol>${rm.timeline.map(st => `<li><b>${esc(st.title)}</b>${st.time ? ` (${esc(st.time)})` : ""}: ${esc(st.detail)}</li>`).join("")}</ol>
+      ${c.none ? `<p>${esc(c.none)}</p>` : `<h3>Submission checklist</h3>
+        <p class="muted">${c.general.map(esc).join(" ")}</p>
+        <table class="simple"><thead><tr><th>☐</th><th>Drawing or form</th><th>What it needs</th></tr></thead><tbody>${
+          [...c.drawings, ...c.forms].map(x => `<tr><td>☐</td><td>${esc(x.item)}</td><td>${esc(x.detail)}</td></tr>`).join("")}</tbody></table>`}
+      ${rm.inspections.length ? `<h3>Inspections</h3><table class="simple"><thead><tr><th>Inspection</th><th>Call when</th></tr></thead><tbody>${
+        rm.inspections.map(x => `<tr><td>${esc(x.item)}</td><td>${esc(x.call)}</td></tr>`).join("")}</tbody></table>` : ""}
+      <p class="muted">Sources: ${rm.sources.map(x => esc(x.name)).join("; ")}.</p>`;
+  }
+  html += `<h2>Pre-filled permit application fields</h2>
+    <p class="muted">For the provincial “Application for a Permit to Construct or Demolish”. Check every value against the
+      current form (updated Feb 16, 2026). Names and contact details are left for you to fill in.</p>
+    <table class="simple"><thead><tr><th>Part</th><th>Field</th><th>Value</th></tr></thead><tbody>${
+      (r.application || []).map(a => `<tr><td>${esc(a.part)}</td><td>${esc(a.field)}</td><td>${esc(a.value)}</td></tr>`).join("")
+    }</tbody></table>
+
+    <h2>Vibes check (AI opinions, not pass/fail)</h2>
+    ${vibesSection()}
+    ${shadowSection(r.shadow)}
+    ${drawingsSection()}`;
+
+  if (r.tracker) {
+    html += `<h2>Rules version</h2><p>${esc(r.tracker.summary)}</p>
+      ${(r.tracker.warnings || []).map(w => `<p class="muted">⚠ ${esc(w)}</p>`).join("")}`;
+  }
+  html += `<h2>Rules not checked for this project</h2>
+    <p class="muted">${(r.not_checked || []).length} rules in the Rules Table didn't apply to this project type or answers:
+      ${(r.not_checked || []).map(x => esc(x.rule_id)).join(", ")}.</p>
+
+    <h2>Important</h2>
+    <ul class="muted">
+      <li>${esc(r.label)} Only the City of Toronto can approve a permit or confirm zoning compliance.</li>
+      <li>This prototype checks a subset of By-law 569-2013, Ontario Building Code and provincial rules. Site-specific
+        exceptions, the neighbour-average front setback and many details are not checked.</li>
+      <li>Building Code (safety) results always need a qualified designer to confirm. They never mean “safe”.</li>
+      <li>Results depend entirely on the numbers entered. Overlay values change from property to property.</li>
+      <li>A student prototype (TKS Innovate project), not a published product.</li>
+    </ul>`;
+  page.innerHTML = html;
+}
+draw();
+</script>
+</body>
+</html>

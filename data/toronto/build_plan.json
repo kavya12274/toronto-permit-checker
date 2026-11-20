@@ -1,0 +1,232 @@
+[
+ {
+  "Step": "1",
+  "Version": "v1 core",
+  "Feature": "Data files",
+  "What to build": "Export Rules Table, Project Types and Test Cases to CSV/JSON that the app reads. Rules live in data files, not in code, so new cities can plug in later.",
+  "Uses": "Rules Table, Project Types",
+  "Done when": "App loads every rule and can list them",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "2",
+  "Version": "v1 core",
+  "Feature": "Input form",
+  "What to build": "Ask: project type, zone (R/RD), overlay values (HT, ST, d, f, a, u, coverage), lot frontage/depth/area, corner/through/lane lot, building measurements. Every field optional but marked.",
+  "Uses": "Project Types",
+  "Done when": "Form saves all inputs",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "3",
+  "Version": "v1 core",
+  "Feature": "Does it need a permit?",
+  "What to build": "Run P-01 to P-12 first and show the answer before anything else.",
+  "Uses": "Rules P-",
+  "Done when": "T-01 to T-04 pass",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "4",
+  "Version": "v1 core",
+  "Feature": "Zoning checker: RD zone",
+  "What to build": "Check every RD- and G- rule. Each result = PASS / FAIL / NEED INFO / FLAG with the limit, the user's value and the section number.",
+  "Uses": "Rules RD-, G-",
+  "Done when": "T-05 to T-10, T-24 to T-27 pass",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "5",
+  "Version": "v1 core",
+  "Feature": "Zoning checker: R zone",
+  "What to build": "Add R- rules.",
+  "Uses": "Rules R-",
+  "Done when": "T-11, T-12 pass",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "6",
+  "Version": "v1 core",
+  "Feature": "Suites",
+  "What to build": "Add garden suite (GS-), laneway suite (LS-), secondary suite (SS-) and provincial overrides (ON-).",
+  "Uses": "Rules GS-, LS-, SS-, ON-",
+  "Done when": "T-13 to T-23 pass",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "7",
+  "Version": "v1 core",
+  "Feature": "Multiplex",
+  "What to build": "Add houseplex rules and conversion rule.",
+  "Uses": "Rules RD-29 to RD-32, G-38",
+  "Done when": "T-35 passes",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "8",
+  "Version": "v1 core",
+  "Feature": "Building Code basics",
+  "What to build": "Add BC- rules. Always marked 'needs human check'.",
+  "Uses": "Rules BC-",
+  "Done when": "T-34 passes",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "9",
+  "Version": "v1 core",
+  "Feature": "Confidence levels",
+  "What to build": "Show High / Verify / Needs human check on every result from column K.",
+  "Uses": "Rules Table col K",
+  "Done when": "Every result shows a level",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "10",
+  "Version": "v1 core",
+  "Feature": "Approvals checklist",
+  "What to build": "Run AP- rules and list every other permit/approval needed.",
+  "Uses": "Rules AP-",
+  "Done when": "T-28 to T-31 pass",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "11",
+  "Version": "v1 core",
+  "Feature": "Report",
+  "What to build": "Compliance summary (like a ZAP pre-check) + pre-filled permit application fields. Label it 'draft for review, not an approval'.",
+  "Uses": "Sources rows 5, 9; Ch. 363",
+  "Done when": "Report downloads with every rule and citation",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "12",
+  "Version": "v2 smarter",
+  "Feature": "Fix-it suggestions",
+  "What to build": "For each FAIL, show the smallest change that would pass (e.g. 'move wall 0.4 m').",
+  "Uses": "Rules Table",
+  "Done when": "T-05 shows a fix",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "13",
+  "Version": "v2 smarter",
+  "Feature": "Variance path",
+  "What to build": "If anything fails: explain Committee of Adjustment + four tests; later add past decisions from Open Data.",
+  "Uses": "AP-08, Planning Act s. 45",
+  "Done when": "T-33 passes",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "14",
+  "Version": "v2 smarter",
+  "Feature": "Address lookup",
+  "What to build": "Pull zone label, overlays, heritage, TRCA, grey-property status from Toronto Open Data.",
+  "Uses": "Sources: Open Data, map, Heritage Register, TRCA",
+  "Done when": "T-28 to T-30 work from an address alone",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "15",
+  "Version": "v3 visual",
+  "Feature": "Buildable area diagram",
+  "What to build": "Draw lot and shade where building is allowed from setbacks.",
+  "Uses": "Setback rules",
+  "Done when": "Diagram matches T-06 numbers",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "16",
+  "Version": "v3 visual",
+  "Feature": "Cost and timeline",
+  "What to build": "Estimate permit fees and review time.",
+  "Uses": "Fee schedule, review streams",
+  "Done when": "Shows fee for a sample addition",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "17",
+  "Version": "v3 visual",
+  "Feature": "Plain language + translation",
+  "What to build": "Simple-English results; translate to other languages.",
+  "Uses": "-",
+  "Done when": "Results readable at grade 8 level",
+  "AI?": "Yes (translation)",
+  "Done": "0"
+ },
+ {
+  "Step": "18",
+  "Version": "v4 advanced",
+  "Feature": "Bylaw update tracker",
+  "What to build": "Show bylaw version used; warn about newer amendments.",
+  "Uses": "By-law Status Registry",
+  "Done when": "Shows version date on report",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "19",
+  "Version": "v4 advanced",
+  "Feature": "More zones",
+  "What to build": "Add RS, RT, RM zones (same structure as RD).",
+  "Uses": "Zoning Ch. 10.40, 10.60, 10.80",
+  "Done when": "New test cases pass",
+  "AI?": "No",
+  "Done": "0"
+ },
+ {
+  "Step": "20",
+  "Version": "AI (last)",
+  "Feature": "AI plan reader",
+  "What to build": "AI reads a description/drawing and fills the input form. Code still does pass/fail. User confirms every number.",
+  "Uses": "Input form",
+  "Done when": "AI fills T-05 inputs from a sample description",
+  "AI?": "Yes",
+  "Done": "0"
+ },
+ {
+  "Step": "21",
+  "Version": "AI (last)",
+  "Feature": "Vibes check",
+  "What to build": "AI compares design to Low-rise Guidelines, Official Plan Neighbourhoods policies and the HCD plan; always quotes the guideline.",
+  "Uses": "Sources: guidelines, OP, HCD plans",
+  "Done when": "Gives a quoted reason for each comment",
+  "AI?": "Yes",
+  "Done": "0"
+ },
+ {
+  "Step": "22",
+  "Version": "AI (last)",
+  "Feature": "Shadow preview",
+  "What to build": "Estimate shadow on neighbours.",
+  "Uses": "-",
+  "Done when": "Optional",
+  "AI?": "Maybe",
+  "Done": "0"
+ },
+ {
+  "Step": "23",
+  "Version": "Every step",
+  "Feature": "Testing",
+  "What to build": "Run all test cases after each step; fill 'Actual result' and tick 'Pass?'.",
+  "Uses": "Test Cases",
+  "Done when": "All ticked",
+  "AI?": "No",
+  "Done": "0"
+ }
+]

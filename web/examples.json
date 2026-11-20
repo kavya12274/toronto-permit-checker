@@ -1,0 +1,295 @@
+{
+ "_about": "Example projects for the My projects page: the three made-up test cases from Nov 18, 2026. The AI parts (drawings, vibes, chat) are the real AI answers from that test run, saved so opening an example costs nothing.",
+ "examples": [
+  {
+   "name": "Example: rear addition (RD zone)",
+   "blurb": "One-storey addition on a 12 × 36 m lot. Filled in by the AI description reader. 1 rule fails (building depth). Includes a vibes check.",
+   "answers": {
+    "project_type": "Rear addition (1 or 2 storey)",
+    "description": "One-storey rear addition on a detached house in an RD zone. The lot is 12 m wide and 36 m deep. The addition is 4 m deep and 3.6 m tall, 1.2 m from each side lot line. The existing house is 2 storeys, 9 m tall, and 14 m deep including the addition. Rear yard after the addition will be 11 m. Not a heritage property.",
+    "adds_structure": true,
+    "building_type": "Detached house",
+    "height": 9,
+    "heritage_designated": false,
+    "house_storeys": 2,
+    "lot_depth": 36,
+    "lot_frontage": 12,
+    "rear_setback": 11,
+    "side_setback": 1.2,
+    "side_setback_other": 1.2,
+    "zone": "RD",
+    "zone_label": "RD (f12.0; a370; d0.6)",
+    "grey_property": false,
+    "in_hcd": false,
+    "trca": false,
+    "ravine": false,
+    "trees_near_work": true,
+    "ht": 10,
+    "st": 2,
+    "coverage_overlay": "none",
+    "f": 12,
+    "a": 370,
+    "d": 0.6,
+    "u": "none",
+    "lot_area": 432,
+    "corner_lot": false,
+    "through_lot": false,
+    "lane": false,
+    "major_street": false,
+    "house_gfa": 240,
+    "structural_work": true,
+    "basement_work": false,
+    "hvac_plumbing": true,
+    "demolition": false,
+    "work_area": 26,
+    "main_wall_height": 7.2,
+    "roof_type": "Pitched",
+    "entrance_height": 0.9,
+    "has_dormers": false,
+    "storeys": 2,
+    "building_length": 16.5,
+    "building_depth": 19.8,
+    "fsi": 0.56,
+    "lot_coverage": 33,
+    "front_setback": 6,
+    "side_wall_openings": true,
+    "has_stairs_in_setback": false,
+    "has_bay_window": false,
+    "has_eaves": true,
+    "eaves_projection": 0.4,
+    "eaves_to_lot_line": 0.8,
+    "has_ac": true,
+    "ac_location": "Rear yard",
+    "ac_projection": 0.8,
+    "front_landscape_pct": 60,
+    "front_soft_pct": 80,
+    "rear_soft_pct": 55,
+    "built_before_1953": false,
+    "flightpath": false,
+    "near_highway": false,
+    "former_commercial": false,
+    "existing_units": 1,
+    "proposed_units": 1
+   },
+   "vibes": {
+    "comments": [
+     {
+      "topic": "Height and scale",
+      "tone": "worth a look",
+      "comment": "The house is 9 m tall and the zoning height overlay is 10 m, so the overall height is within the limit. Still, compare the 9 m height and the 7.2 m side walls with nearby one- and two-storey homes on your street to see if the house looks taller than its neighbours.",
+      "quote": "prevailing heights, massing, scale, density and dwelling type of nearby residential properties",
+      "guideline": "Official Plan 4.1.5 (c): height, massing and scale",
+      "guideline_id": "OP-4.1.5-c",
+      "kind": "quoted",
+      "link": "https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/official-plan/chapters-1-5/official-plan-chapter-4/"
+     },
+     {
+      "topic": "Lot size and depth",
+      "tone": "worth a look",
+      "comment": "The lot is 12 m wide and 36 m deep, and the house is 14 m deep with a 19.8 m building depth measured from the front setback line. Walk the block and check whether other lots are similar, and whether longer rear additions are common there.",
+      "quote": "prevailing size and configuration of lots",
+      "guideline": "Official Plan 4.1.5 (b): lots",
+      "guideline_id": "OP-4.1.5-b",
+      "kind": "quoted",
+      "link": "https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/official-plan/chapters-1-5/official-plan-chapter-4/"
+     },
+     {
+      "topic": "Rear and side yards",
+      "tone": "fits",
+      "comment": "The rear yard will be 11 m and the side setbacks are 1.2 m on each side, which looks like a fairly typical pattern for a detached house. Compare the side gaps and rear yards on neighbouring lots, and note whether the 1.2 m side gap matches the street.",
+      "quote": "prevailing patterns of rear and side yard setbacks and landscaped open space",
+      "guideline": "Official Plan 4.1.5 (g): rear and side yards",
+      "guideline_id": "OP-4.1.5-g",
+      "kind": "quoted",
+      "link": "https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/official-plan/chapters-1-5/official-plan-chapter-4/"
+     },
+     {
+      "topic": "Privacy and sunlight",
+      "tone": "concern",
+      "comment": "The side wall facing the smaller side has windows or doors, and the eaves and air conditioner sit close to the side line. Neighbours may ask about views into their yard and noise from the heat pump. Consider frosted or high windows on that side and placing the unit away from the neighbour's windows.",
+      "quote": "provide adequate privacy, sunlight and sky views for occupants of new and existing buildings by ensuring adequate distance and separation between building walls",
+      "guideline": "Official Plan 4.1.9 (c): privacy and sunlight (infill)",
+      "guideline_id": "OP-4.1.9-c",
+      "kind": "quoted",
+      "link": "https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/official-plan/chapters-1-5/official-plan-chapter-4/"
+     },
+     {
+      "topic": "Landscaping and trees",
+      "tone": "worth a look",
+      "comment": "The rear yard will keep 55% soft landscaping and there is a tree nearby. Check whether the street has many large trees or lush rear yards, and plan to protect the nearby tree during construction.",
+      "quote": "continuation of special landscape or built-form features that contribute to the unique physical character",
+      "guideline": "Official Plan 4.1.5 (h): special features",
+      "guideline_id": "OP-4.1.5-h",
+      "kind": "quoted",
+      "link": "https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/official-plan/chapters-1-5/official-plan-chapter-4/"
+     }
+    ],
+    "dropped": [],
+    "note": "Opinions for discussion, based on the guideline text shown. They never change a PASS or FAIL. Summaries are this tool's paraphrase, not official wording: follow the links."
+   },
+   "yard": "N"
+  },
+  {
+   "name": "Example: garden suite from a drawing",
+   "blurb": "Two-storey garden suite behind a semi. Filled in from an uploaded site plan. 3 rules fail. Includes the drawing check and a chatbot what-if.",
+   "answers": {
+    "project_type": "Garden suite",
+    "description": "Two-storey garden suite in the back yard behind a semi-detached house, for my parents.",
+    "zone": "R",
+    "zone_label": "R (d0.6) (x123)",
+    "grey_property": false,
+    "building_type": "Semi-detached house",
+    "lot_frontage": 7.6,
+    "lot_depth": 38,
+    "lot_area": 288.8,
+    "lane": false,
+    "heritage_designated": false,
+    "in_hcd": false,
+    "trca": false,
+    "ravine": false,
+    "trees_near_work": false,
+    "house_storeys": 2,
+    "gs_height": 6,
+    "gs_storeys": 2,
+    "gs_to_house": 9.8,
+    "gs_rear_setback": 1.2,
+    "gs_side_setback": 0.9,
+    "gs_side_openings": true,
+    "gs_gfa": 82,
+    "gs_rear_windows_high": false,
+    "other_suite_building": false,
+    "residential_buildings": 1,
+    "f": "none",
+    "ht": 10,
+    "st": "none",
+    "a": "none",
+    "d": 0.6,
+    "u": "none",
+    "coverage_overlay": "none",
+    "corner_lot": false,
+    "through_lot": false,
+    "adds_structure": true,
+    "existing_units": 1,
+    "proposed_units": 2,
+    "suite_roof_item": "Nothing",
+    "gs_deck_area": 0,
+    "all_buildings_coverage": 38,
+    "bike_spaces": 2,
+    "rear_soft_full_width_pct": 40,
+    "ancillary_coverage_all": 18,
+    "has_secondary_suite": false,
+    "flightpath": false,
+    "near_highway": false,
+    "former_commercial": false
+   },
+   "drawings": {
+    "files": [
+     "site-plan-test.png"
+    ],
+    "when": "Nov 18, 2026 (test run)",
+    "summary": "The site plan shows a two-storey garden suite at the rear of a 7.6 m x 38.0 m lot behind an existing two-storey semi-detached house. The garden suite is labelled 6.0 m high with 82 m2 GFA, a 0.9 m side setback and a 1.2 m rear setback, and the house is 8.9 m high and 9.8 m from the suite. The drawing is a test sheet, is not signed, and has no floor plans, elevations or sections attached.",
+    "conflicts": [
+     {
+      "what": "Garden suite rear setback: your form says 1.5 m, the drawing shows 1.2 m.",
+      "where": "site-plan-test.png, dimension '1.2 m rear setback'",
+      "by": "code"
+     },
+     {
+      "what": "Garden suite rear setback is 1.2 m on the site plan, but the form answer gs_rear_setback is 1.5 m.",
+      "where": "site-plan-test.png",
+      "by": "AI"
+     }
+    ],
+    "checklist": [
+     {
+      "item": "Site plan",
+      "status": "unclear",
+      "note": "Simple site sketch with lot size, house and suite setbacks, and height labels. No survey reference, no grades, easements, services, or neighbouring building setbacks, and no zoning summary."
+     },
+     {
+      "item": "Floor plans",
+      "status": "missing",
+      "note": "No floor plans were provided."
+     },
+     {
+      "item": "Drawn to scale and fully dimensioned",
+      "status": "shown",
+      "note": "Marked 1:100 with dimensions in metres."
+     },
+     {
+      "item": "Signed and dated",
+      "status": "missing",
+      "note": "Dated 2026-11-18, but the signature line is blank."
+     }
+    ]
+   },
+   "chat": [
+    {
+     "role": "user",
+     "content": "What if I shrink the suite so it's 1.5 m from the back and 1.5 m from the side lot line? Would it pass then?"
+    },
+    {
+     "role": "assistant",
+     "content": "With the suite moved to 1.5 m from the rear line and 1.5 m from the side line, the rear setback (GS-03, s. 150.7.60.20(2)) and side setback (GS-05, s. 150.7.60.20(5)) now pass. The suite would still not pass overall.\n\nGS-02 still fails (s. 150.7.50.10(1)). Rear yard soft landscaping is 40%, and the minimum is 50%. You would need to add about 10 percentage points of soft landscaping across the full rear lot width, or reduce hard surfaces. Two items also still need info: GS-17 (house floor area, so the tool can confirm the suite is smaller than the house) and BC-02 (whether a floor has a bedroom).\n\nYour drawing and the form still show 1.2 m and 0.9 m, so you would need to update the drawing to match. This is a draft pre-check, not an approval, and a qualified designer must confirm the Building Code items.",
+     "what_ifs": [
+      {
+       "changes": {
+        "gs_rear_setback": 1.5,
+        "gs_side_setback": 1.5
+       },
+       "overall": "1 rule doesn't pass. Change the design or apply for a minor variance.",
+       "changed": [
+        {
+         "rule_id": "GS-03",
+         "before": "FAIL",
+         "after": "PASS"
+        },
+        {
+         "rule_id": "GS-05",
+         "before": "FAIL",
+         "after": "PASS"
+        }
+       ]
+      }
+     ],
+     "suggestions": []
+    }
+   ]
+  },
+  {
+   "name": "Example: deck at 200 Carlton St (CR zone, heritage district)",
+   "blurb": "1.4 m deck in Cabbagetown. Zoning filled in by the address lookup. The zone is CR (not residential), so the checker says zoning is outside its scope instead of guessing; heritage and tree permits flagged.",
+   "answers": {
+    "project_type": "Deck / platform",
+    "description": "Raised wooden deck off the back door, about 1.4 m off the ground.",
+    "address": "200 Carlton St",
+    "grey_property": false,
+    "zone_label": "CR 1.5 (c1.0; r1.0) SS2  (x1873)",
+    "zone": "Other",
+    "exception": "1873",
+    "ht": 12,
+    "st": "none",
+    "coverage_overlay": "none",
+    "in_hcd": true,
+    "ravine": false,
+    "trca": false,
+    "building_type": "Semi-detached house",
+    "lot_frontage": 6,
+    "lot_depth": 30,
+    "heritage_designated": false,
+    "trees_near_work": true,
+    "flightpath": false,
+    "adds_structure": true,
+    "deck_height": 1.4,
+    "deck_is_exit": false,
+    "deck_level": "First storey or below",
+    "deck_above_floor": 0.3,
+    "deck_location": "Rear yard",
+    "deck_encroachment": 2.5,
+    "deck_to_side_line": 0.3,
+    "deck_setback": 7,
+    "rear_soft_pct": 45
+   }
+  }
+ ]
+}

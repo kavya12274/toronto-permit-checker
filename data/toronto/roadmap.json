@@ -1,0 +1,55 @@
+{
+ "_about": "Hand-written from City of Toronto pages, read Nov 17, 2026. 'when' says which projects an item applies to (see checker/roadmap.py). Check the City's pages for changes before relying on this.",
+ "sources": [
+  {"name": "Small Residential Additions (required documentation and forms)", "link": "https://www.toronto.ca/services-payments/building-construction/building-permit/before-you-apply-for-a-building-permit/building-permit-application-guides/renovation-and-new-house-guides/small-residential-additions/"},
+  {"name": "Municipal Code Chapter 363, s. 363-3.5 (plans and site plan requirements; Schedule D)", "link": "https://www.toronto.ca/legdocs/municode/1184_363.pdf"},
+  {"name": "When to Call for Inspection of Small Buildings", "link": "https://www.toronto.ca/services-payments/building-construction/building-permit/after-you-apply-for-a-building-permit/building-inspections/about-building-inspections/when-to-call-for-inspection-of-small-buildings/"},
+  {"name": "Electronic submission guidelines", "link": "https://www.toronto.ca/services-payments/building-construction/building-permit/before-you-apply-for-a-building-permit/building-permit-application-guides/electronic-submission-guidelines/"}
+ ],
+ "general": [
+  "All drawings on standard-size sheets, drawn to scale, fully dimensioned, signed and dated (Ch. 363-3.5C).",
+  "Submit everything as single-layer PDFs (version 7 or later), with comments and layers removed.",
+  "If a qualified designer drew the plans: their name, BCIN registration number, signature and stamp on the drawings.",
+  "Don't put personal information (names, phone numbers) on the drawings: plans can be disclosed under MFIPPA."
+ ],
+ "drawings": [
+  {"item": "Site plan", "when": "building", "detail": "Referenced to a current survey by an Ontario Land Surveyor. Shows lot size and dimensions, setbacks to existing and proposed buildings, existing and finished grades and street elevations, easements and services, setbacks to buildings on the neighbouring lots, and a summary of permitted vs proposed zoning (lot area, floor area, coverage, height)."},
+  {"item": "Floor plans", "when": "building", "detail": "Every level, fully dimensioned: existing and proposed uses of each room, smoke and carbon monoxide alarms, plumbing fixtures, walls, and the structure above."},
+  {"item": "Roof plan", "when": "roof", "detail": "Roof structure, slopes, skylights, hips/valleys/peaks and ventilation."},
+  {"item": "Elevations", "when": "exterior", "detail": "Exterior finishes, roof slopes, window and door sizes and sill heights, overall building height, decks/stairs/guards, and the area of exposed wall and unprotected openings (limiting distance)."},
+  {"item": "Cross sections", "when": "building", "detail": "Floor, wall and roof assemblies, footings and foundation walls, grade height above the basement floor, floor-to-floor and floor-to-ceiling heights, stairs and guards."},
+  {"item": "Garage / accessory structure details", "when": "accessory", "detail": "Location and setbacks on the site plan, distance to other buildings, parking spaces and driveway, floor plans, elevations, sections and the concrete slab details."},
+  {"item": "Deck / verandah details", "when": "deck", "detail": "Footing size, spacing, depth and frost protection; column and beam sizes and spans; stair rise, run and headroom; guard details (openings, climbability)."},
+  {"item": "Demolition details", "when": "demolition", "detail": "What is being demolished, how, and the schedule (Ch. 363-3.4)."},
+  {"item": "Separate HVAC and plumbing drawings", "when": "mechanical", "detail": "Submitted as their own PDFs for the HVAC and plumbing permit applications."}
+ ],
+ "forms": [
+  {"item": "Application for a Permit to Construct or Demolish", "when": "always", "detail": "The provincial form (updated version required since Feb 16, 2026). This tool pre-fills part of it."},
+  {"item": "Schedule 1: Designer Information", "when": "always", "detail": "For the designer (not needed for engineers and architects). Homeowners designing their own house fill it in to claim the exemption."},
+  {"item": "Energy Efficiency Design Summary (SB-12)", "when": "new_space", "detail": "For a new house or an addition: prescriptive or performance compliance form."},
+  {"item": "Tree Declaration", "when": "always", "detail": "Required wherever private or City trees could be damaged."},
+  {"item": "Residential Infill Public Notice Declaration", "when": "infill", "detail": "For new houses and additions over 100 m²: you then post the City's notice on site."},
+  {"item": "Municipal Road Damage Deposit form", "when": "building", "detail": "A deposit that covers damage to the curb, sidewalk, road or boulevard during construction."},
+  {"item": "Assumption of Responsibility for Engineering Content", "when": "engineer", "detail": "Only if a professional engineer sealed any drawings."},
+  {"item": "Rental Renovation Licence Screening Form", "when": "tenants", "detail": "For renovations to a rental unit (Chapter 662)."},
+  {"item": "Declaration: Overhead Electrical Conductors", "when": "new_space", "detail": "Signed by the designer for every new building or addition."}
+ ],
+ "inspections": [
+  {"item": "Footings", "when": "foundation", "call": "When the formwork is done, before pouring concrete."},
+  {"item": "Foundations", "when": "foundation", "call": "When the foundation is complete."},
+  {"item": "Structural framing", "when": "framing", "call": "When framing is complete, including rough-in plumbing and HVAC."},
+  {"item": "Fire separations", "when": "units", "call": "When wall, floor and shaft separations and fire stopping are done, before interior finishes."},
+  {"item": "Insulation and vapour barrier", "when": "framing", "call": "When insulation and vapour barrier are done, before interior finishes."},
+  {"item": "Fireplaces, gas appliances and chimneys", "when": "hvac", "call": "When installation starts."},
+  {"item": "Plumbing rough-in", "when": "plumbing", "call": "When water supply, drains, waste and vents are roughed in and ready for testing."},
+  {"item": "HVAC rough-in", "when": "hvac", "call": "When the rough-in is complete, before insulation."},
+  {"item": "Occupancy", "when": "units", "call": "Ask your inspector (needed before anyone moves in)."},
+  {"item": "Final interior", "when": "building", "call": "When the interior is complete."},
+  {"item": "Final exterior", "when": "exterior", "call": "When the exterior is complete. This closes the permit: an open permit can cause trouble when you sell."}
+ ],
+ "inspection_notes": [
+  "Tell your inspector when each stage is ready. Inspections happen within two business days of your request (Monday to Friday, 8:30 to 4:30).",
+  "Keep the stamped permit drawings on site for every inspection.",
+  "Don't cover anything before it passes: covered work has to be opened up again."
+ ]
+}

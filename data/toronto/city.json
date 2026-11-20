@@ -1,0 +1,17 @@
+{
+ "_about": "Hand-written from the workbook's Read Me and Sources tabs. Update when you re-check the by-law. Another city would have its own city.json.",
+ "name": "City of Toronto",
+ "bylaw": "Zoning By-law 569-2013",
+ "consolidation_citywide_to": "2026-04-30",
+ "consolidation_site_specific_to": "2024-07-31",
+ "rules_checked_on": "2026-11-10",
+ "building_code": "Ontario Building Code 2024 (O. Reg. 163/24)",
+ "stale_after_days": 180,
+ "status_registry": "https://www.toronto.ca/city-government/planning-development/zoning-by-law-preliminary-zoning-review/zoning-by-law-569-2013-2/",
+ "known_amendments": [
+  {"bylaw": "1249-2024", "what": "Brings low-rise lands in North York and Toronto-East York into 569-2013", "in_rules": false},
+  {"bylaw": "616-2025", "what": "Brings more low-rise lands into 569-2013; multiplex changes", "in_rules": false},
+  {"bylaw": "654-2025", "what": "Expands fiveplex/sixplex permissions in Toronto-East York", "in_rules": false},
+  {"bylaw": "402-2026", "what": "Tree by-law changes to Ch. 813 and Ch. 658 (in force Sept 1, 2026)", "in_rules": false}
+ ]
+}

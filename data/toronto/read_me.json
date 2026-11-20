@@ -1,0 +1,54 @@
+[
+ {
+  "Topic": "What it is",
+  "Details": "A model tool that pre-checks low-rise residential projects in Toronto against zoning, key Building Code rules and other approvals, then makes a draft report. A prototype for TKS, not a published product."
+ },
+ {
+  "Topic": "Scope",
+  "Details": "Toronto + Ontario rules. Low-rise residential only: additions, decks, sheds, garages, pools, garden suites, laneway suites, secondary suites, multiplexes (2-4 units), new houses. Zones R and RD first (RS, RT, RM later)."
+ },
+ {
+  "Topic": "Tabs",
+  "Details": "Sources = every document and link. Project Types = what the tool covers. Rules Table = every rule with limit + section. Test Cases = examples with expected answers. Build Plan = order to build in."
+ },
+ {
+  "Topic": "Golden rule 1",
+  "Details": "Code decides pass/fail, never the AI. AI is only added at the end to read plans and do the vibes check."
+ },
+ {
+  "Topic": "Golden rule 2",
+  "Details": "Every result shows the bylaw section and a confidence level: High, Verify, or Needs human check."
+ },
+ {
+  "Topic": "Golden rule 3",
+  "Details": "Missing info = 'Need more info', never PASS."
+ },
+ {
+  "Topic": "Golden rule 4",
+  "Details": "Grey properties (old bylaws) and site-specific exceptions = stop or warn. Never guess."
+ },
+ {
+  "Topic": "Golden rule 5",
+  "Details": "Safety (Building Code) results always say 'a qualified designer must confirm'. Never say 'safe' or 'approved'."
+ },
+ {
+  "Topic": "Golden rule 6",
+  "Details": "Report label: 'Draft pre-check for review. Not an approval.'"
+ },
+ {
+  "Topic": "Overlay values",
+  "Details": "Many limits come from the zone label (e.g. RD (f12.0; a370; d0.6)) and overlay maps (HT height, ST storeys, lot coverage). The tool must ask for these or look them up."
+ },
+ {
+  "Topic": "Before coding",
+  "Details": "1) Download sources in 'Download order'. 2) Check each rule in Rules Table against the PDF and tick 'Verified vs PDF'. 3) Fill the 'To extract' rows (BC-06 to BC-11)."
+ },
+ {
+  "Topic": "Rules taken from",
+  "Details": "Toronto Zoning By-law 569-2013 web consolidation (city-wide amendments to Apr 30, 2026), City of Toronto permit pages, Ontario Building Code 2024 references. Checked Nov 10, 2026."
+ },
+ {
+  "Topic": "For Claude Code",
+  "Details": "Download this workbook as .xlsx (or each tab as CSV) and give it to Claude Code with the Build Plan. Build one step at a time and run the Test Cases after each step."
+ }
+]

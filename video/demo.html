@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Permit Pre-Check demo video</title>
+<!--
+  The demo video, as a web page. The real app runs in the frame below and is driven
+  step by step, timed to your voice recording (audio/voice.m4a).
+
+  Watch it:   start the app (python3 app.py), open http://localhost:8010/video/demo.html, press Play.
+  Record it:  swift video/tools/render.swift   (draws every frame from this page, then adds your voice)
+
+  Everything that happens is listed in TIMELINE below, in seconds from the start of the recording.
+  If you re-record your voice, change the times in LINES and the rest follows.
+-->
+<style>
+  :root { --bg: #f3f1ea; --card: #fff; --text: #1d1d1b; --muted: #5f5e58; --line: #dedcd4; --accent: #2f6690;
+          --accent-soft: #e4eef5; --pass: #1e6b3a; --pass-bg: #e6f3ea; --fail: #a02a22; --fail-bg: #fbe9e7;
+          --flag: #5b4a8a; --flag-bg: #eeeaf7; --need: #6b5a12; --need-bg: #f7f1d9; --hi: #f0b429; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #111; }
+  #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg);
+           transform-origin: 0 0; font: 30px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; color: var(--text); }
+  iframe { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; border: 0; transform: scale(1.5);
+           transform-origin: 0 0; background: var(--bg); }
+  .ov { position: absolute; pointer-events: none; opacity: 0; }
+
+  /* captions: what you're saying, at the bottom */
+  #caption { left: 50%; bottom: 46px; transform: translateX(-50%); max-width: 1500px; padding: 18px 34px; border-radius: 22px;
+             background: rgba(20, 22, 26, 0.86); color: #fff; font-size: 38px; font-weight: 600; text-align: center; line-height: 1.3; }
+
+  /* the mouse pointer */
+  #cursor { width: 46px; height: 46px; left: 0; top: 0; z-index: 30; opacity: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,.35)); }
+  #ripple { width: 90px; height: 90px; border-radius: 50%; border: 6px solid var(--hi); z-index: 29; }
+
+  /* "hundreds of pages" pile (line 1) */
+  #pile { right: 120px; top: 560px; width: 620px; }
+  .doc { background: var(--card); border-radius: 18px; box-shadow: 0 14px 40px rgba(0,0,0,.16); padding: 18px 24px; margin-top: 14px;
+         font-size: 28px; font-weight: 600; display: flex; justify-content: space-between; gap: 20px; }
+  .doc span { color: var(--muted); font-weight: 400; }
+
+  /* highlight ring (line 2) */
+  #ring { border: 7px solid var(--hi); border-radius: 30px; box-shadow: 0 0 0 9999px rgba(0,0,0,.18); }
+
+  /* full-screen panels (lines 6, 7, 8) */
+  .panel { inset: 0; background: linear-gradient(135deg, var(--accent-soft), var(--bg) 65%); display: flex; flex-direction: column;
+           justify-content: center; padding: 0 150px 210px; }
+  .eyebrow { font-size: 30px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .panel h2 { font-size: 86px; line-height: 1.05; margin: 14px 0 46px; letter-spacing: -1px; }
+  .cards { display: flex; gap: 34px; }
+  .fcard { flex: 1; background: var(--card); border-radius: 30px; box-shadow: 0 18px 50px rgba(0,0,0,.10); padding: 38px 40px; }
+  .fcard .ico { font-size: 66px; }
+  .fcard b { display: block; font-size: 40px; margin: 10px 0 8px; }
+  .fcard p { margin: 0; color: var(--muted); font-size: 29px; }
+  .tag { display: inline-block; margin-top: 18px; background: var(--need-bg); color: var(--need); font-weight: 700; font-size: 24px;
+         padding: 4px 16px; border-radius: 99px; }
+  .rulebar { margin-top: 38px; background: var(--pass-bg); color: var(--pass); border-radius: 22px; padding: 22px 32px;
+             font-size: 38px; font-weight: 700; display: flex; align-items: center; gap: 20px; }
+  .end { align-items: center; text-align: center; padding: 0 150px 80px; }
+  .end .logo { width: 150px; height: 150px; }
+  .end h2 { margin: 26px 0 12px; }
+  .end p { font-size: 40px; color: var(--muted); margin: 0; }
+  .end .label { margin-top: 40px; font-size: 30px; font-weight: 700; color: var(--fail); background: var(--fail-bg);
+                padding: 10px 26px; border-radius: 99px; }
+
+  #controls { position: fixed; right: 16px; bottom: 16px; z-index: 100; display: flex; gap: 8px; align-items: center;
+              font: 15px -apple-system, sans-serif; color: #ddd; }
+  #controls button { font: inherit; padding: 8px 16px; border-radius: 8px; border: 0; cursor: pointer; }
+  body.render #controls { display: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <iframe id="app" title="Permit Pre-Check app"></iframe>
+
+  <div class="ov" id="pile">
+    <div class="doc">Zoning By-law 569-2013 <span>1,000+ pages</span></div>
+    <div class="doc">Ontario Building Code <span>Part 9</span></div>
+    <div class="doc">Heritage, trees, TRCA… <span>more rules</span></div>
+  </div>
+  <div class="ov" id="ring"></div>
+
+  <div class="ov panel" id="future">
+    <div class="eyebrow">Coming next</div>
+    <h2>AI that helps, but doesn't decide</h2>
+    <div class="cards">
+      <div class="fcard" id="f-ai"><div class="ico">📐</div><b>AI plan reader</b>
+        <p>Reads your drawings or description and fills in the form. You confirm every number.</p><span class="tag">Coming soon</span></div>
+      <div class="fcard" id="f-vibes"><div class="ico">🏘️</div><b>Vibes check</b>
+        <p>Does your design fit the neighbourhood? Compares it to the City's design guidelines.</p><span class="tag">Coming soon</span></div>
+    </div>
+    <div class="rulebar" id="f-rules">✓ The rules still decide PASS or FAIL, never the AI.</div>
+  </div>
+
+  <div class="ov panel" id="next">
+    <div class="eyebrow">Then</div>
+    <h2>Bigger and smarter</h2>
+    <div class="cards">
+      <div class="fcard" id="n1"><div class="ico">🗺️</div><b>More zones</b><p>RS, RT and RM zones, on top of R and RD.</p></div>
+      <div class="fcard" id="n2"><div class="ico">🏙️</div><b>Other cities</b><p>Any city can plug in its own rules file.</p></div>
+      <div class="fcard" id="n3"><div class="ico">⚖️</div><b>Past decisions</b><p>Minor variances already approved near you.</p></div>
+    </div>
+  </div>
+
+  <div class="ov panel end" id="end">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="9" fill="var(--accent)"/><path d="M7 15.5 16 8l9 7.5V25H7z" fill="#fff"/>
+      <path d="M11.5 18.5l3 3 6-6" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2>Permit Pre-Check</h2>
+    <p>Hours of reading → a few minutes</p>
+    <div class="label">A pre-check, not an approval</div>
+  </div>
+
+  <div class="ov" id="ripple"></div>
+  <svg class="ov" id="cursor" viewBox="0 0 24 24"><path d="M4 2l16 9.5-7 1.6 4.2 7.4-3 1.6-4.1-7.4L5 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  <div class="ov" id="caption"></div>
+</div>
+
+<div id="controls"><button id="play">▶ Play with voice</button><span id="clock">0.0 s</span></div>
+<audio id="voice" src="/video/audio/voice.m4a" preload="auto"></audio>
+
+<script>
+// ---------------------------------------------------------------- your lines (from the pauses in audio/voice.m4a)
+const LINES = [
+  {t: 0.75,  end: 7.4,  text: "Want to build an addition or a garden suite in Toronto? Finding out if it's allowed means reading hundreds of pages of rules."},
+  {t: 8.0,   end: 14.0, text: "Permit Pre-Check does it for you. It checks your project against Toronto's zoning, Building Code basics and other approvals."},
+  {t: 14.6,  end: 18.7, text: "Pick your project and type your address. It looks up the City's zoning map for you."},
+  {t: 19.1,  end: 23.5, text: "Add your measurements. Skip one, and it says \"need more info\", never a pass."},
+  {t: 23.95, end: 30.8, text: "Every result shows pass or fail, the by-law section, and the smallest fix. Then print a report for your designer."},
+  {t: 31.3,  end: 40.95, text: "Next, I'm adding AI that reads your drawings to fill in the form, and checks if your design fits the neighbourhood. The rules still decide pass or fail, not the AI."},
+  {t: 41.55, end: 45.55, text: "Then more zones, other cities, and past variance decisions nearby."},
+  {t: 46.0,  end: 49.75, text: "It's a pre-check, not an approval, but it turns hours of reading into minutes."},
+];
+// Captions: the same words, split at your pauses so each caption is short (times from the pauses in the recording)
+const CAPTIONS = [
+  [0.75, 3.6, "Want to build an addition or a garden suite in Toronto?"],
+  [3.95, 7.4, "Finding out if it's allowed means reading hundreds of pages of rules."],
+  [8.0, 9.9, "Permit Pre-Check does it for you."],
+  [9.9, 14.0, "It checks your project against Toronto's zoning, Building Code basics and other approvals."],
+  [14.6, 16.3, "Pick your project and type your address."],
+  [16.7, 18.7, "It looks up the City's zoning map for you."],
+  [19.1, 20.0, "Add your measurements."],
+  [20.0, 23.5, "Skip one, and it says \"need more info\", never a pass."],
+  [23.95, 28.1, "Every result shows pass or fail, the by-law section, and the smallest fix."],
+  [28.75, 30.8, "Then print a report for your designer."],
+  [31.3, 34.8, "Next, I'm adding AI that reads your drawings to fill in the form,"],
+  [35.25, 37.5, "and checks if your design fits the neighbourhood."],
+  [37.85, 40.95, "The rules still decide pass or fail, not the AI."],
+  [41.55, 45.55, "Then more zones, other cities, and past variance decisions nearby."],
+  [46.0, 49.75, "It's a pre-check, not an approval, but it turns hours of reading into minutes."],
+];
+const DURATION = 51.2;
+
+// ---------------------------------------------------------------- helpers
+const $ = (id) => document.getElementById(id);
+const frame = $("app");
+const W = () => frame.contentWindow;
+const A = () => W().eval("ANSWERS");     // the app's answers (a "let" variable, so read it this way)
+const D = () => frame.contentDocument;
+const q = (sel) => D() && D().querySelector(sel);
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const ease = (p) => p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+// fade in at a, out at b (d = fade time)
+const fade = (t, a, b, d = 0.4) => clamp(Math.min((t - a) / d, (b - t) / d));
+
+// Load a page in the frame and wait for it (and turn off the app's own animations so every frame is predictable)
+function loadApp(url) {
+  return new Promise(resolve => {
+    frame.onload = async () => {
+      const s = D().createElement("style");
+      s.textContent = "*,*::before,*::after{transition:none!important;animation:none!important;caret-color:transparent!important}" +
+                      "html{scroll-behavior:auto!important}::-webkit-scrollbar{display:none}" +
+                      // always the light theme in the video, even if the computer is in dark mode
+                      ":root{--bg:#f3f1ea!important;--card:#fff!important;--text:#1d1d1b!important;--muted:#5f5e58!important;" +
+                      "--line:#dedcd4!important;--accent:#2f6690!important;--accent-text:#fff!important;--accent-soft:#e4eef5!important;" +
+                      "--pass:#1e6b3a!important;--pass-bg:#e6f3ea!important;--fail:#a02a22!important;--fail-bg:#fbe9e7!important;" +
+                      "--need:#6b5a12!important;--need-bg:#f7f1d9!important;--flag:#5b4a8a!important;--flag-bg:#eeeaf7!important;" +
+                      "--grey-bg:#efeee9!important;--lot:#e9f1e4!important;--house:#c9c5b8!important;--hi:#f0b429!important;" +
+                      "--build:#cfe6d5!important;--build-line:#1e6b3a!important;" +
+                      "--shadow:0 1px 2px rgba(30,30,20,.05),0 6px 20px rgba(30,30,20,.06)!important;color-scheme:light}" +
+                      ".card{border:none!important}";
+      D().head.append(s);
+      await sleep(400);
+      resolve();
+    };
+    frame.src = url;
+  });
+}
+async function until(test, ms = 6000) {
+  const t0 = Date.now();
+  while (!test() && Date.now() - t0 < ms) await sleep(30);
+}
+function setAnswer(key, value) { A()[key] = value; W().save(); }
+function typeInto(sel, text, p) {          // type text gradually (p = 0..1)
+  const el = q(sel);
+  if (!el) return;
+  el.value = text.slice(0, Math.round(text.length * p));
+}
+function pageScroll(y) { W() && W().scrollTo(0, y); }
+function elTop(sel) { const el = q(sel); return el ? el.getBoundingClientRect().top + W().scrollY : 0; }
+function center(sel) {                      // where an element in the app is, in stage pixels
+  const el = q(sel);
+  if (!el) return null;
+  const r = el.getBoundingClientRect();
+  return {x: (r.left + r.width / 2) * 1.5, y: (r.top + r.height / 2) * 1.5, r};
+}
+
+// ---------------------------------------------------------------- what happens, and when
+// events: run once when the time passes them (they can wait for the app to finish)
+// tweens: smooth changes between t0 and t1 (scrolling, typing)
+// cursor: where the pointer is at each moment (an element, or x/y on the stage), with clicks
+const L = LINES.map(l => l.t);
+const EVENTS = [
+  {t: 0,      run: async () => { await loadApp("/#/"); }},
+  // line 3: pick a project, then the address
+  {t: L[2],   run: async () => { W().location.hash = "#/check/1"; await until(() => q('input[value="Rear addition (1 or 2 storey)"]')); pageScroll(0); }},
+  {t: L[2] + 1.15, run: async () => { q('input[value="Rear addition (1 or 2 storey)"]').click(); }},
+  {t: 16.55,  run: async () => { W().location.hash = "#/check/2"; await until(() => q("#f_address")); pageScroll(0); }},
+  {t: 17.75,  run: async () => {             // "Look up": fill in what the real lookup returns for a typical RD lot
+    const values = {address: "123 Example St", zone: "RD", zone_label: "RD (f12.0; a370; d0.6)", grey_property: false,
+                    ht: "none", st: "none", coverage_overlay: "none", in_hcd: false, trca: false, ravine: false};
+    Object.assign(A(), values); W().save(); W().showStep(2);
+    q("#lookup-status").innerHTML = "<b>Found 123 Example St: filled in 9 answers. Check them before relying on them.</b>" +
+      "<ul style='margin:6px 0 0;padding-left:20px'><li>Zone label: RD (f12.0; a370; d0.6)</li><li>Height overlay: no HT/ST value</li>" +
+      "<li>Not in a heritage district, ravine area or TRCA area</li></ul>";
+    pageScroll(0);
+  }},
+  // line 4: measurements
+  {t: L[3],   run: async () => {
+    Object.assign(A(), {lot_frontage: 10, lot_depth: 36, building_type: "Detached house", existing_units: 1, house_storeys: 2,
+                                height: 9.5, roof_type: "Pitched", main_wall_height: 7.2, front_setback: 6.5, building_length: 16,
+                                building_depth: 18, side_setback_other: 1.2, work_area: 25, trees_near_work: true});
+    W().save(); W().location.hash = "#/check/4"; await until(() => q('[data-key="side_setback"] input'));
+    pageScroll(elTop('[data-key="side_setback"]') - 220);
+  }},
+  {t: 20.75,  run: async () => { setAnswer("side_setback", 0.8); }},
+  {t: 22.35,  run: async () => { setAnswer("rear_setback", 8); }},
+  {t: 23.15,  run: async () => { q('[data-key="side_wall_openings"] .pill.unknown input')?.click(); }},
+  // line 5: results, the fix, the report
+  {t: L[4],   run: async () => { W().location.hash = "#/check/5"; await until(() => q(".summary")); pageScroll(0); }},
+  {t: 25.1,   run: async () => { W().setFilter("FAIL"); pageScroll(elTop(".summary") - 300); }},
+  {t: 28.6,   run: async () => { await loadApp("/report"); await until(() => q("h1")); pageScroll(0); }},
+  // line 8: back to the start
+  {t: L[7] - 0.4, run: async () => { await loadApp("/#/"); }},
+];
+
+const TWEENS = [
+  // line 1-2: home page, then scroll to "What it checks"
+  {t0: 9.3, t1: 10.6, run: (p) => { pageScroll(p * Math.max(0, elTop(".checks-list") - 330)); }},
+  // line 3: type the address
+  {t0: 16.85, t1: 17.55, run: (p) => typeInto("#f_address", "123 Example St", p)},
+  {t0: 18.0, t1: 18.6, run: (p) => { pageScroll(p * Math.max(0, elTop("#lookup-status") - 300)); }},
+  // line 4: type the two setbacks
+  {t0: 20.1, t1: 20.7, run: (p) => typeInto('[data-key="side_setback"] input', "0.8", p)},
+  {t0: 21.7, t1: 22.3, run: (p) => typeInto('[data-key="rear_setback"] input', "8", p)},
+  // line 5: show the summary tiles, scroll down to the fix, then the report
+  {t0: 24.15, t1: 24.65, run: (p) => { pageScroll(p * Math.max(0, elTop(".summary") - 300)); }},
+  {t0: 26.0, t1: 27.2, run: (p) => { const y0 = elTop(".summary") - 300, y1 = elTop(".item.FAIL .fix") - 420; pageScroll(y0 + (y1 - y0) * p); }},
+  {t0: 29.3, t1: 30.9, run: (p) => { pageScroll(p * Math.max(0, elTop("table.simple") - 200)); }},
+];
+
+// pointer path: [time, target]. target = CSS selector in the app, or {x, y} on the stage. click: true = press there.
+const CURSOR = [
+  [0, {x: 1500, y: 980}],
+  [14.9, {x: 1100, y: 760}],
+  [15.6, 'input[value="Rear addition (1 or 2 storey)"]', "label"],
+  [16.0, 'input[value="Rear addition (1 or 2 storey)"]', "label", true],
+  [16.7, "#f_address"],
+  [17.5, "#lookup"],
+  [17.7, "#lookup", null, true],
+  [19.6, '[data-key="side_setback"] input'],
+  [20.05, '[data-key="side_setback"] input', null, true],
+  [21.4, '[data-key="rear_setback"] input'],
+  [21.65, '[data-key="rear_setback"] input', null, true],
+  [22.8, '[data-key="side_wall_openings"] .pill.unknown'],
+  [23.1, '[data-key="side_wall_openings"] .pill.unknown', null, true],
+  [24.6, ".tile.FAIL"],
+  [25.05, ".tile.FAIL", null, true],
+  [27.6, ".item.FAIL .fix"],
+  [28.2, {x: 1700, y: 300}],
+  [31.0, {x: 2100, y: 1200}],             // off screen during the "coming next" cards
+  [46.0, {x: 2100, y: 1200}],
+];
+
+function cursorPoint(entry) {
+  const [, target, closest] = entry;
+  if (typeof target !== "string") return target;
+  let el = q(target);
+  if (el && closest) el = el.closest(closest);
+  if (!el) return null;
+  const r = el.getBoundingClientRect();
+  return {x: (r.left + Math.min(r.width / 2, 120)) * 1.5, y: (r.top + r.height / 2) * 1.5};
+}
+
+let lastCursor = {x: 1500, y: 980};
+function drawCursor(t) {
+  let i = 0;
+  while (i < CURSOR.length - 1 && CURSOR[i + 1][0] <= t) i++;
+  const a = CURSOR[i], b = CURSOR[i + 1];
+  let pa = cursorPoint(a) || lastCursor;
+  let pos = pa;
+  if (b) {
+    const pb = cursorPoint(b) || pa;
+    const p = ease(clamp((t - a[0]) / Math.max(0.01, Math.min(0.7, b[0] - a[0]))));
+    // move during the last 0.7 s before the next point
+    const start = Math.max(a[0], b[0] - 0.7);
+    const pp = ease(clamp((t - start) / (b[0] - start)));
+    pos = {x: pa.x + (pb.x - pa.x) * pp, y: pa.y + (pb.y - pa.y) * pp};
+  }
+  lastCursor = pos;
+  const c = $("cursor");
+  c.style.transform = `translate(${pos.x - 6}px, ${pos.y - 4}px)`;
+  c.style.opacity = 1;
+  // click ripple
+  const click = CURSOR.filter(e => e[3] && t >= e[0] && t < e[0] + 0.45).pop();
+  const r = $("ripple");
+  if (click) {
+    const k = (t - click[0]) / 0.45;
+    r.style.opacity = 1 - k;
+    r.style.transform = `translate(${pos.x - 45}px, ${pos.y - 45}px) scale(${0.4 + k})`;
+  } else r.style.opacity = 0;
+}
+
+function drawOverlays(t) {
+  // captions
+  const cap = CAPTIONS.find((c, i) => t >= c[0] - 0.1 && t < Math.min(c[1] + 0.35, (CAPTIONS[i + 1] || [99])[0] - 0.1));
+  $("caption").style.opacity = cap ? 1 : 0;
+  if (cap && $("caption").dataset.t != cap[0]) { $("caption").textContent = cap[2]; $("caption").dataset.t = cap[0]; }
+  // line 1: the pile of rule books
+  $("pile").style.opacity = fade(t, 3.9, 7.9);
+  [...$("pile").children].forEach((d, i) => { const p = ease(clamp((t - 3.95 - i * 0.35) / 0.5));
+    d.style.opacity = p; d.style.transform = `translateY(${(1 - p) * 30}px)`; });
+  // line 2: ring around "What it checks"
+  const ring = $("ring"), box = q(".checks-list") && q(".checks-list").closest(".card");
+  const ro = fade(t, 10.7, 14.4);
+  ring.style.opacity = box ? ro : 0;
+  if (box && ro > 0) { const r = box.getBoundingClientRect();
+    Object.assign(ring.style, {left: r.left * 1.5 - 14 + "px", top: r.top * 1.5 - 14 + "px", width: r.width * 1.5 + 28 + "px", height: r.height * 1.5 + 28 + "px"}); }
+  // line 6: coming next
+  $("future").style.opacity = fade(t, 31.15, 41.45, 0.35);
+  const pop = (id, at) => { const p = ease(clamp((t - at) / 0.5)); $(id).style.opacity = p; $(id).style.transform = `translateY(${(1 - p) * 40}px)`; };
+  pop("f-ai", 31.4); pop("f-vibes", 35.25); pop("f-rules", 37.85);
+  // line 7: then
+  $("next").style.opacity = fade(t, 41.45, 46.1, 0.35);
+  pop("n1", 42.3); pop("n2", 43.3); pop("n3", 44.4);
+  // line 8: end card (after the app is shown again briefly)
+  $("end").style.opacity = clamp((t - 47.2) / 0.6);
+  $("cursor").style.visibility = t > 30.9 ? "hidden" : "visible";
+}
+
+// ---------------------------------------------------------------- the clock
+let done = 0;
+const tweenDone = new Set();
+let busy = false;
+async function seekTo(t) {                  // bring everything to time t (called for every frame)
+  while (done < EVENTS.length && EVENTS[done].t <= t) { await EVENTS[done].run(); done++; }
+  TWEENS.forEach((tw, i) => {
+    if (t >= tw.t0 && (t <= tw.t1 || !tweenDone.has(i))) {
+      try { tw.run(ease(clamp((t - tw.t0) / (tw.t1 - tw.t0)))); } catch (e) {}
+      if (t > tw.t1) tweenDone.add(i);
+    }
+  });
+  drawOverlays(t);
+  drawCursor(t);
+  $("clock").textContent = t.toFixed(1) + " s";
+  return true;
+}
+window.seekTo = seekTo;
+window.DURATION = DURATION;
+
+// Fit the 1920x1080 stage to the window (for watching; the recorder uses the full size)
+function fit() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); $("stage").style.transform = `scale(${s})`; }
+addEventListener("resize", fit);
+
+async function prepare() {
+  try { localStorage.clear(); localStorage.setItem("permitGuideSeen", "yes"); } catch (e) {}
+  await seekTo(0);
+  window.demoReady = true;
+}
+
+$("play").onclick = async () => {
+  if (done > 1) { location.reload(); return; }
+  const audio = $("voice");
+  await audio.play();
+  const tick = async () => {
+    if (!busy) { busy = true; await seekTo(audio.currentTime); busy = false; }
+    if (!audio.ended) requestAnimationFrame(tick);
+  };
+  tick();
+};
+
+if (location.search.includes("render")) document.body.classList.add("render"); else fit();
+prepare();
+</script>
+</body>
+</html>

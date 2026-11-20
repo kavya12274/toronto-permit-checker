@@ -1,0 +1,63 @@
+Test ID,Build step,Scenario,Expected result,Actual result,Pass?
+X-01,1,[builder test] Rules live in data: changing RD-18's limit to 1.0 in the data changes the result (no code change),,RD-18: FAIL (limit 1.0) | RD-18: PASS (limit 0.9),1
+X-01c,1,[builder test] Every rule in the Rules Table has code that checks it (catches new rules added to the sheet),,174 of 174 rules have code that checks them,1
+X-01d,1,"[builder test] Rules that need unusual answers really run (RD-05, RD-24, R-07, R-11, R-15, GS-09, GS-14, LS-11, G-01)",,RD-05: PASS (limit 7.5) | RD-24: PASS (limit 0.9) | R-07: PASS (limit 0.69) | R-11: PASS (limit 0.45) | R-15: FAIL | GS-09: PASS (limit 4.0) | GS-14: FAIL (limit 0.3) | LS-11: PASS (limit 1.5) | G-01: FLAG,1
+T-01,3,Small storage shed,No permit needed; zoning still checked,Permit: No building permit needed; P-02: PASS (limit 15.0); 10 zoning results,1
+T-02,3,Bigger shed,Permit needed,Permit: Permit needed; P-01: FLAG (limit 15.0),1
+T-03,3,Low deck,No permit needed,Permit: No building permit needed; P-04: PASS (limit 0.6),1
+T-04,3,High deck,Permit needed,Permit: Permit needed; P-04: FLAG (limit 0.6),1
+T-05,4,Side setback too small (RD),FAIL: needs 0.9 m. Fix-it: move wall 0.1 m in,RD-18: FAIL (limit 0.9),1
+T-06,4,Side setback OK (RD),PASS,RD-20: PASS (limit 1.5),1
+T-07,4,"Too tall, no HT value",FAIL: max 10.0 m,RD-02: FAIL (limit 10.0),1
+T-08,4,Rear setback on deep lot,FAIL: needs 10.0 m (25% of 40 m > 7.5 m),RD-16: FAIL (limit 10.0),1
+T-09,4,Rear setback on shallow lot,"PASS (25% = 7.0 m, so 7.5 m rules)",RD-16: PASS (limit 7.5),1
+T-10,4,Building too long,FAIL: max 17.0 m (2.0 m extension only for frontage >12 m),RD-09: FAIL (limit 17.0),1
+T-24,4,Tall shed close to house,FAIL: max 2.5 m within 1.8 m of house,G-20: FAIL (limit 2.5),1
+T-25,4,Pool too close to rear line,FAIL: needs 1.2 m,G-28: FAIL (limit 1.2),1
+T-26,4,Driveway too wide,FAIL: max 6.0 m,G-35: FAIL (limit 6.0),1
+T-27,4,Front yard landscaping,FAIL: needs 50%,G-13: FAIL (limit 50.0),1
+T-11,5,FSI over limit (R zone),FAIL: max 0.6,R-06: FAIL (limit 0.6),1
+T-12,5,FSI with secondary suite,FSI limit doesn't apply -> PASS for FSI,R-06: PASS,1
+T-13,6,Too tall and too close,FAIL height (max 4.0 m within 7.5 m) and FAIL separation (needs 7.5 m if >4 m),GS-11: FAIL (limit 4.0); GS-10: FAIL (limit 7.5),1
+T-14,6,Two-storey suite OK,PASS height (6.3 m) and separation (7.5 m),GS-12: PASS (limit 6.3); GS-10: PASS (limit 7.5); GS-13: PASS (limit 2.0),1
+T-15,6,One-storey too big,FAIL: max 60 m² for one storey,GS-16: FAIL (limit 60.0),1
+T-16,6,Rear setback too small,FAIL: needs 1.5 m,GS-03: FAIL (limit 1.5),1
+T-17,6,Side setback with windows,FAIL: needs greater of 1.5 m or 1.0 m = 1.5 m,GS-05: FAIL (limit 1.5),1
+T-18,6,Wide lot side setback,FAIL: needs 2.5 m (10% of 25 m),GS-05: FAIL (limit 2.5),1
+T-19,6,Too long,FAIL length (max 10.0 m); PASS width,LS-07: FAIL (limit 10.0); LS-08: PASS (limit 8.0),1
+T-20,6,Not enough lane frontage,Laneway suite not allowed; suggest garden suite rules,LS-01: FAIL (limit 3.5),1
+T-21,6,Two suites,FAIL: only one ancillary building with a suite,GS-01: FAIL (limit 1.0),1
+T-22,6,Suite too big,FAIL: max 45%,SS-03: FAIL (limit 45.0),1
+T-23,6,Whole basement exception,PASS (exception),SS-04: PASS,1
+T-32,6,Missing information,Need more info' for depth-based rules (never PASS by default),RD-16: NEED MORE INFO | GS-03: NEED MORE INFO (limit 1.5),1
+T-35,7,Houseplex bedrooms,FAIL: max 3 bedrooms per unit for 3+ units,RD-30: FAIL (limit 3.0),1
+T-34,8,Egress window sill too high,"FAIL (max 1000 mm), marked 'needs human check'",BC-03: FAIL (limit 1000),1
+X-09,9,"[builder test] Every result in all 16 project types shows status, section and confidence",,42 results checked | 40 results checked | 24 results checked | 15 results checked | 23 results checked | 23 results checked | 15 results checked | 36 results checked | 37 results checked | 24 results checked | 39 results checked | 49 results checked | 19 results checked | 18 results checked | 14 results checked | 14 results checked,1
+T-28,10,Heritage district,FLAG: heritage permit + run vibes check vs HCD plan,AP-04: FLAG,1
+T-29,10,TRCA area,FLAG: TRCA permit,AP-05: FLAG,1
+T-30,10,Old bylaw property,STOP: no checks run; tell user to contact Toronto Building,STOPPED; AP-01: FLAG,1
+T-31,10,Basement conversion flags,"Permit needed + FLAGS: Fire Code, ESA, Ch. 662, OBC items marked 'needs human check'",Permit: Permit needed; P-06: FLAG; BC-12: FLAG; AP-11: FLAG; AP-15: FLAG,1
+X-11,11,"[builder test] Report has the draft label, every citation, pre-filled fields and the vibes check section",,"AP-02: FLAG; label OK, 17 application fields, vibes check section",1
+T-05-fix,12,Side setback too small (RD),FAIL: needs 0.9 m. Fix-it: move wall 0.1 m in,Fix: Move the wall 0.1 m in (further from the line) so the side yard setback (the smaller side) goes 0.8 → 0.9 m. Then re-run the check: one change can affect other rules.,1
+T-33,13,Variance path,Show minor variance path with the four tests,AP-08: FLAG; Variance path with 4 tests,1
+T-28-address,14,Heritage district,FLAG: heritage permit + run vibes check vs HCD plan,AP-04: FLAG,1
+T-29-address,14,TRCA area,FLAG: TRCA permit,AP-05: FLAG,1
+T-30-address,14,Old bylaw property,STOP: no checks run; tell user to contact Toronto Building,STOPPED; AP-01: FLAG,1
+T-06-diagram,15,Side setback OK (RD),PASS,Diagram: 12.0 m wide x 19 m deep,1
+X-16,16,[builder test] Shows the fee for a sample 30 m² rear addition,,Costs: Application fee (non-refundable) $644.38 Permit fee $556.80 City review time (co,1
+X-17,17,"[builder test] Simple-words sentences read at grade 8 or lower, all 16 project types",,Plain-language worst grade 8.0 | Plain-language worst grade 8.0 | Plain-language worst grade 6.2 | Plain-language worst grade 6.2 | Plain-language worst grade 6.2 | Plain-language worst grade 6.2 | Plain-language worst grade 6.2 | Plain-language worst grade 6.7 | Plain-language worst grade 6.7 | Plain-language worst grade 6.8 | Plain-language worst grade 8.0 | Plain-language worst grade 8.0 | Plain-language worst grade 6.6 | Plain-language worst grade 6.7 | Plain-language worst grade 6.7 | Plain-language worst grade 6.2,1
+X-18,18,[builder test] Report shows the by-law version date,,Tracker: Rules version: Zoning By-law 569-2013 consolidation with city-wide ame,1
+X-19a,19,"[builder test] RS/RT/RM with no rules loaded: every project type asks for rules, never guesses or crashes",,ZONE: NEED MORE INFO; 27 results checked | 24 results checked | 23 results checked | 15 results checked | 23 results checked | 23 results checked | 14 results checked | 36 results checked | 37 results checked | 24 results checked | 21 results checked | 32 results checked | 19 results checked | 18 results checked | 14 results checked | 14 results checked | ZONE: NEED MORE INFO; 27 results checked | 24 results checked | 23 results checked | 15 results checked | 23 results checked | 23 results checked | 14 results checked | 36 results checked | 37 results checked | 24 results checked | 21 results checked | 32 results checked | 19 results checked | 18 results checked | 14 results checked | 14 results checked | ZONE: NEED MORE INFO; 27 results checked | 24 results checked | 23 results checked | 15 results checked | 23 results checked | 23 results checked | 14 results checked | 36 results checked | 37 results checked | 24 results checked | 21 results checked | 32 results checked | 19 results checked | 18 results checked | 14 results checked | 14 results checked,1
+X-19b,19,"[builder test] Plug in RS rules (copied from RD, side setback changed to 1.2 m): checker uses them",,RS-18: FAIL (limit 1.2); RS-02: PASS (limit 10.0),1
+X-25,20,"[AI plan reader, pretend AI, no cost] Description -> checked suggestions -> confirmed -> checker gives RD-18 FAIL (limit 0.9 m). Bad values dropped, made-up quotes left unticked, cost recorded",,"ticked ['has_dormers', 'lot_frontage', 'project_type', 'side_setback', 'zone'], unticked ['rear_setback'], dropped ['height', 'roof_type'], cost $0.0008; RD-18: FAIL (limit 0.9)",1
+X-26,20,"[AI budget guard] With $4.9999 of the $5 already spent, the next request is NOT sent",,stopped before sending: Stopped to protect your budget: $5.00 of $5.00 is ...,1
+X-27,20,"[AI drawing reader, pretend AI, no cost] Bad numbers dropped, code spots form vs drawing differences, every checklist item reported, unknown items ignored, wrong file types stopped before sending; values with no drawing named are dropped, and values equal to the form are counted as matches, not suggested",,"suggested ['side_setback'], dropped ['height', 'lot_frontage'], code found 1 conflict(s), checklist 8 items (shown site plan) | stopped before sending: notes.docx: only PDF, PNG, JPG, WEBP or GIF files can be rea",1
+X-28,20,"[AI chatbot, pretend AI, no cost] 'What if' runs the REAL checker (RD-18 FAIL -> PASS at 0.9 m), answer buttons are offered not applied, 'approved' gets a reminder, every round is paid for",,"2 AI rounds, tools ['what_if', 'suggest_answer'], checker said {'RD-18': ('FAIL', 'PASS')}, 1 answer button(s)",1
+X-29,21,"[AI vibes check, pretend AI, no cost] Comments must quote a guideline that applies to this project; made-up quotes and wrong guidelines are dropped",,"kept [('OP-4.1.5-c', 'worth a look')], dropped 2",1
+X-30,22,"[Shadow preview, no AI] Toronto sun angles: a 5 m garden suite casts about 4.8 m at noon on Mar 21 and 11.8 m on Dec 21; no preview for a deck",,"shadow lengths {'Mar 21, 9 am': 8.4, 'Mar 21, noon': 4.8, 'Mar 21, 3 pm': 8.4, 'Jun 21, noon': 1.8, 'Dec 21, noon': 11.8} | shadow: None",1
+X-31,22,"[Zone outside scope] A deck in a CR (commercial residential) zone: no zoning PASS/FAIL is shown, one ZONE flag says why; heritage approval and permit still show. The same deck in RD still gets the deck height FAIL",,Permit: Permit needed; ZONE: FLAG; AP-04: FLAG | G-04: FAIL (limit 1.2),1
+X-20,25,"[builder test] What can I build? The biggest designs it suggests pass the checker (RD lot, R lot with a lane), and it stops on a grey lot",,"options: house, garden, multiplex | options: house, garden, laneway | stopped",1
+X-21,25,"[builder test] What-if: one-storey vs two-storey garden suite: the 1-storey passes, the 2-storey needs a variance and costs more",,"One storey: 0 fails, variance False, fee 1721.51 vs Two storeys: 2 fails, variance True, fee 2556.71",1
+X-22,25,"[builder test] Permit roadmap: right drawings, forms, inspections and timeline for the project",,"Roadmap: 13 items, 11 inspections, 9 steps | Permit: No building permit needed; Roadmap: 0 items, 0 inspections, 3 steps | Roadmap: 10 items, 6 inspections, 7 steps",1
+X-23,26,[builder test] Rejection warnings fit the project (and none when no permit is needed); Toronto wait time shown,,10 warnings; wait 69 days | 0 warnings; wait 21 days,1
+X-24,26,[builder test] Permit stats (open data) and by-law dictionary (Chapter 800) files are complete and sensible,,"11 stats groups, 47 dictionary terms",1

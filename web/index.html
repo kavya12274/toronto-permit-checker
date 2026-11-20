@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Permit Pre-Check</title>
+  <link rel="stylesheet" href="/web/style.css">
+  <!-- Dark is the default look. Settings -> Colours can switch to Light or Auto (follow the computer). -->
+  <script>(function () { let t = "dark"; try { t = localStorage.getItem("permitTheme") || "dark"; } catch (e) {}
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; })();</script>
+</head>
+<body>
+  <a class="skip" href="#app" onclick="event.preventDefault(); focusHeading()">Skip to main content</a>
+
+  <header class="topbar no-print">
+    <div class="topbar-inner">
+      <a class="brand" href="#/" aria-label="Permit Pre-Check home">
+        <!-- logo: a house with a check mark, drawn in code so it follows light/dark mode -->
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="var(--accent)"/>
+          <path d="M7 15.5 16 8l9 7.5V25H7z" fill="var(--accent-text)"/>
+          <path d="M11.5 18.5l3 3 6-6" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span><h1 data-t="title">Permit Pre-Check</h1><span class="brand-sub" data-t="subtitle">Toronto · low-rise homes · Zoning By-law 569-2013</span></span>
+      </a>
+      <nav class="topnav" aria-label="Main">
+        <a class="navlink" href="#/" data-nav="home" data-t="nav_home">Home</a>
+        <a class="navlink" href="#/check/1" data-nav="check" data-t="nav_check">Check a project</a>
+        <a class="navlink" href="#/build" data-nav="build" data-t="nav_build">What can I build?</a>
+        <a class="navlink" href="#/projects" data-nav="projects">My projects</a>
+        <a class="navlink" href="#/stats" data-nav="stats" data-t="nav_stats">Toronto stats</a>
+        <button class="navlink" type="button" onclick="openGuide()" data-t="nav_guide">How to use</button>
+      </nav>
+      <!-- Language, simple words and bigger text live in one small menu, so the bar stays one line -->
+      <details class="settings-menu" id="settings-menu">
+        <summary class="navlink"><svg class="ico-s" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><span data-t="settings">Settings</span></summary>
+        <div class="settings-panel">
+          <label class="setting-row" for="lang"><span data-t="language">Language</span>
+            <select id="lang"><option value="en">English</option></select></label>
+          <div class="setting-row" role="radiogroup" aria-labelledby="mode-label"><span id="mode-label" data-t="mode">Mode</span>
+            <span class="theme-choice">
+              <label title="Plain words, the essentials"><input type="radio" name="mode" value="homeowner"> <span data-t="mode_home">Homeowner</span></label>
+              <label title="Every number, section and export"><input type="radio" name="mode" value="designer"> <span data-t="mode_designer">Designer</span></label>
+            </span></div>
+          <label class="setting-row"><span data-t="simple">Simple words</span><input type="checkbox" id="simple" role="switch"></label>
+          <label class="setting-row"><span data-t="bigtext">Bigger text</span><input type="checkbox" id="bigtext" role="switch"></label>
+          <div class="setting-row" role="radiogroup" aria-labelledby="theme-label"><span id="theme-label" data-t="theme">Colours</span>
+            <span class="theme-choice">
+              <label><input type="radio" name="theme" value="auto"> <span data-t="theme_auto">Auto</span></label>
+              <label><input type="radio" name="theme" value="light"> <span data-t="theme_light">Light</span></label>
+              <label><input type="radio" name="theme" value="dark"> <span data-t="theme_dark">Dark</span></label>
+            </span></div>
+        </div>
+      </details>
+    </div>
+  </header>
+  <div class="draft-banner" data-t="draft">Draft pre-check for review. Not an approval.</div>
+
+  <main>
+    <div id="app" aria-live="polite">Loading…</div>
+    <div id="term-tip" class="term-tip" role="tooltip" hidden></div>
+    <p class="disclaimer"><a href="#/dictionary">By-law dictionary</a> · <a href="#/stats">Toronto permit stats</a><br>Pre-check only. Not an approval and not legal advice. Rules change: check with Toronto Building.
+      A student prototype (TKS Innovate).</p>
+  </main>
+
+  <script src="/web/common.js"></script>
+  <script src="/web/guide.js"></script>
+  <script src="/web/app.js"></script>
+  <script src="/web/projects.js"></script>
+</body>
+</html>

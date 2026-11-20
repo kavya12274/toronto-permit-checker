@@ -1,0 +1,554 @@
+{
+ "source": "City of Toronto Open Data: Building Permits - Cleared Permits (since 2017) and Active Permits",
+ "link": "https://open.toronto.ca/dataset/building-permits-cleared-permits/",
+ "built_on": "2026-11-17",
+ "data_up_to": "2026-11-13",
+ "measure": "Calendar days from application to permit issued, for permits that were issued. Includes time the applicant spent fixing incomplete applications or zoning problems, not only City review time. The latest year is incomplete: applications still waiting for a permit aren't counted yet, so it can look faster than it will end up.",
+ "overall": {
+  "permits": 55169,
+  "median_days": 27,
+  "within_14_days_pct": 34
+ },
+ "groups": [
+  {
+   "name": "New house",
+   "project_key": "newhouse",
+   "permits": 17335,
+   "median_days": 55,
+   "p25_days": 27,
+   "p75_days": 132,
+   "within_14_days_pct": 6,
+   "over_90_days_pct": 34,
+   "by_year": {
+    "2017": {
+     "median_days": 50,
+     "permits": 2164
+    },
+    "2018": {
+     "median_days": 44,
+     "permits": 2186
+    },
+    "2019": {
+     "median_days": 67,
+     "permits": 2431
+    },
+    "2020": {
+     "median_days": 61,
+     "permits": 1739
+    },
+    "2021": {
+     "median_days": 56,
+     "permits": 1846
+    },
+    "2022": {
+     "median_days": 71,
+     "permits": 1708
+    },
+    "2023": {
+     "median_days": 72,
+     "permits": 1584
+    },
+    "2024": {
+     "median_days": 49,
+     "permits": 1391
+    },
+    "2025": {
+     "median_days": 48,
+     "permits": 1299
+    },
+    "2026": {
+     "median_days": 46,
+     "permits": 987
+    }
+   }
+  },
+  {
+   "name": "Interior alterations / basement",
+   "project_key": "interior",
+   "permits": 15042,
+   "median_days": 12,
+   "p25_days": 7,
+   "p75_days": 28,
+   "within_14_days_pct": 58,
+   "over_90_days_pct": 6,
+   "by_year": {
+    "2017": {
+     "median_days": 12,
+     "permits": 1660
+    },
+    "2018": {
+     "median_days": 12,
+     "permits": 1504
+    },
+    "2019": {
+     "median_days": 13,
+     "permits": 1618
+    },
+    "2020": {
+     "median_days": 15,
+     "permits": 1454
+    },
+    "2021": {
+     "median_days": 17,
+     "permits": 1726
+    },
+    "2022": {
+     "median_days": 20,
+     "permits": 1513
+    },
+    "2023": {
+     "median_days": 15,
+     "permits": 1235
+    },
+    "2024": {
+     "median_days": 7,
+     "permits": 1405
+    },
+    "2025": {
+     "median_days": 8,
+     "permits": 1563
+    },
+    "2026": {
+     "median_days": 6,
+     "permits": 1364
+    }
+   }
+  },
+  {
+   "name": "Rear or second-storey addition",
+   "project_key": "rear",
+   "permits": 4247,
+   "median_days": 37,
+   "p25_days": 17,
+   "p75_days": 85,
+   "within_14_days_pct": 21,
+   "over_90_days_pct": 24,
+   "by_year": {
+    "2017": {
+     "median_days": 31,
+     "permits": 520
+    },
+    "2018": {
+     "median_days": 30,
+     "permits": 446
+    },
+    "2019": {
+     "median_days": 32,
+     "permits": 423
+    },
+    "2020": {
+     "median_days": 42,
+     "permits": 388
+    },
+    "2021": {
+     "median_days": 43,
+     "permits": 500
+    },
+    "2022": {
+     "median_days": 50,
+     "permits": 407
+    },
+    "2023": {
+     "median_days": 43,
+     "permits": 368
+    },
+    "2024": {
+     "median_days": 40,
+     "permits": 442
+    },
+    "2025": {
+     "median_days": 40,
+     "permits": 433
+    },
+    "2026": {
+     "median_days": 32,
+     "permits": 320
+    }
+   }
+  },
+  {
+   "name": "Garage or carport",
+   "project_key": "garage",
+   "permits": 3765,
+   "median_days": 16,
+   "p25_days": 8,
+   "p75_days": 47,
+   "within_14_days_pct": 48,
+   "over_90_days_pct": 16,
+   "by_year": {
+    "2017": {
+     "median_days": 22,
+     "permits": 471
+    },
+    "2018": {
+     "median_days": 21,
+     "permits": 529
+    },
+    "2019": {
+     "median_days": 18,
+     "permits": 471
+    },
+    "2020": {
+     "median_days": 22,
+     "permits": 438
+    },
+    "2021": {
+     "median_days": 25,
+     "permits": 405
+    },
+    "2022": {
+     "median_days": 32,
+     "permits": 379
+    },
+    "2023": {
+     "median_days": 16,
+     "permits": 268
+    },
+    "2024": {
+     "median_days": 7,
+     "permits": 259
+    },
+    "2025": {
+     "median_days": 7,
+     "permits": 262
+    },
+    "2026": {
+     "median_days": 6,
+     "permits": 283
+    }
+   }
+  },
+  {
+   "name": "Secondary suite",
+   "project_key": "secondary",
+   "permits": 2992,
+   "median_days": 17,
+   "p25_days": 7,
+   "p75_days": 47,
+   "within_14_days_pct": 47,
+   "over_90_days_pct": 12,
+   "by_year": {
+    "2017": {
+     "median_days": 27,
+     "permits": 163
+    },
+    "2018": {
+     "median_days": 25,
+     "permits": 149
+    },
+    "2019": {
+     "median_days": 29,
+     "permits": 245
+    },
+    "2020": {
+     "median_days": 29,
+     "permits": 302
+    },
+    "2021": {
+     "median_days": 37,
+     "permits": 322
+    },
+    "2022": {
+     "median_days": 45,
+     "permits": 319
+    },
+    "2023": {
+     "median_days": 18,
+     "permits": 390
+    },
+    "2024": {
+     "median_days": 8,
+     "permits": 356
+    },
+    "2025": {
+     "median_days": 9,
+     "permits": 385
+    },
+    "2026": {
+     "median_days": 6,
+     "permits": 361
+    }
+   }
+  },
+  {
+   "name": "Deck",
+   "project_key": "deck",
+   "permits": 2783,
+   "median_days": 21,
+   "p25_days": 8,
+   "p75_days": 63,
+   "within_14_days_pct": 42,
+   "over_90_days_pct": 20,
+   "by_year": {
+    "2017": {
+     "median_days": 28,
+     "permits": 316
+    },
+    "2018": {
+     "median_days": 21,
+     "permits": 295
+    },
+    "2019": {
+     "median_days": 32,
+     "permits": 279
+    },
+    "2020": {
+     "median_days": 28,
+     "permits": 310
+    },
+    "2021": {
+     "median_days": 39,
+     "permits": 363
+    },
+    "2022": {
+     "median_days": 52,
+     "permits": 292
+    },
+    "2023": {
+     "median_days": 24,
+     "permits": 220
+    },
+    "2024": {
+     "median_days": 7,
+     "permits": 203
+    },
+    "2025": {
+     "median_days": 8,
+     "permits": 248
+    },
+    "2026": {
+     "median_days": 6,
+     "permits": 257
+    }
+   }
+  },
+  {
+   "name": "Garden or laneway suite",
+   "project_key": "garden",
+   "permits": 2643,
+   "median_days": 69,
+   "p25_days": 35,
+   "p75_days": 128,
+   "within_14_days_pct": 4,
+   "over_90_days_pct": 39,
+   "by_year": {
+    "2019": {
+     "median_days": 102,
+     "permits": 72
+    },
+    "2020": {
+     "median_days": 98,
+     "permits": 115
+    },
+    "2021": {
+     "median_days": 76,
+     "permits": 193
+    },
+    "2022": {
+     "median_days": 92,
+     "permits": 247
+    },
+    "2023": {
+     "median_days": 83,
+     "permits": 387
+    },
+    "2024": {
+     "median_days": 74,
+     "permits": 505
+    },
+    "2025": {
+     "median_days": 64,
+     "permits": 668
+    },
+    "2026": {
+     "median_days": 46,
+     "permits": 444
+    }
+   }
+  },
+  {
+   "name": "Underpinning",
+   "project_key": "interior",
+   "permits": 2027,
+   "median_days": 13,
+   "p25_days": 7,
+   "p75_days": 27,
+   "within_14_days_pct": 56,
+   "over_90_days_pct": 4,
+   "by_year": {
+    "2017": {
+     "median_days": 8,
+     "permits": 299
+    },
+    "2018": {
+     "median_days": 12,
+     "permits": 248
+    },
+    "2019": {
+     "median_days": 15,
+     "permits": 262
+    },
+    "2020": {
+     "median_days": 15,
+     "permits": 238
+    },
+    "2021": {
+     "median_days": 20,
+     "permits": 236
+    },
+    "2022": {
+     "median_days": 28,
+     "permits": 195
+    },
+    "2023": {
+     "median_days": 16,
+     "permits": 138
+    },
+    "2024": {
+     "median_days": 7,
+     "permits": 164
+    },
+    "2025": {
+     "median_days": 8,
+     "permits": 141
+    },
+    "2026": {
+     "median_days": 5,
+     "permits": 106
+    }
+   }
+  },
+  {
+   "name": "Front porch",
+   "project_key": "porch",
+   "permits": 1672,
+   "median_days": 16,
+   "p25_days": 8,
+   "p75_days": 45,
+   "within_14_days_pct": 47,
+   "over_90_days_pct": 14,
+   "by_year": {
+    "2017": {
+     "median_days": 15,
+     "permits": 241
+    },
+    "2018": {
+     "median_days": 22,
+     "permits": 210
+    },
+    "2019": {
+     "median_days": 15,
+     "permits": 231
+    },
+    "2020": {
+     "median_days": 25,
+     "permits": 201
+    },
+    "2021": {
+     "median_days": 29,
+     "permits": 201
+    },
+    "2022": {
+     "median_days": 27,
+     "permits": 151
+    },
+    "2023": {
+     "median_days": 15,
+     "permits": 123
+    },
+    "2024": {
+     "median_days": 7,
+     "permits": 121
+    },
+    "2025": {
+     "median_days": 9,
+     "permits": 114
+    },
+    "2026": {
+     "median_days": 6,
+     "permits": 79
+    }
+   }
+  },
+  {
+   "name": "Shed / accessory building",
+   "project_key": "shed",
+   "permits": 1561,
+   "median_days": 19,
+   "p25_days": 8,
+   "p75_days": 53,
+   "within_14_days_pct": 44,
+   "over_90_days_pct": 17,
+   "by_year": {
+    "2017": {
+     "median_days": 22,
+     "permits": 138
+    },
+    "2018": {
+     "median_days": 26,
+     "permits": 146
+    },
+    "2019": {
+     "median_days": 27,
+     "permits": 113
+    },
+    "2020": {
+     "median_days": 32,
+     "permits": 184
+    },
+    "2021": {
+     "median_days": 26,
+     "permits": 230
+    },
+    "2022": {
+     "median_days": 44,
+     "permits": 178
+    },
+    "2023": {
+     "median_days": 14,
+     "permits": 121
+    },
+    "2024": {
+     "median_days": 7,
+     "permits": 155
+    },
+    "2025": {
+     "median_days": 9,
+     "permits": 180
+    },
+    "2026": {
+     "median_days": 6,
+     "permits": 116
+    }
+   }
+  },
+  {
+   "name": "Pool fence enclosure",
+   "project_key": "pool",
+   "permits": 1102,
+   "median_days": 10,
+   "p25_days": 7,
+   "p75_days": 17,
+   "within_14_days_pct": 71,
+   "over_90_days_pct": 4,
+   "by_year": {
+    "2017": {
+     "median_days": 10,
+     "permits": 413
+    },
+    "2018": {
+     "median_days": 9,
+     "permits": 324
+    },
+    "2019": {
+     "median_days": 10,
+     "permits": 338
+    },
+    "2020": {
+     "median_days": 12,
+     "permits": 27
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+# Private: your API key
+.env
+# Your own AI spending record
+data/ai_spending.json
+# Python leftovers
+__pycache__/
+*.pyc
+.DS_Store
+# Your voice recording and the big demo video (kept on your computer, not on GitHub)
+video/audio/
+video/output/
+# Claude Code's own settings for this folder
+.claude/

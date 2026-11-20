@@ -1,0 +1,457 @@
+{
+ "source": "https://www.toronto.ca/zoning/bylaw_amendments/ZBL_NewProvision_Chapter800.htm",
+ "built_on": "2026-11-17",
+ "terms": [
+  {
+   "term": "Established Grade",
+   "words": [
+    "established grade"
+   ],
+   "plain": "The ground level the City measures height from: the average ground height at the two front corners of the lot, at the required front setback line.",
+   "official": "Established Grade means the average elevation of the ground measured at the two points where the projection of the required minimum front yard setback line is 0.01 metres past each side lot line.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(240)"
+  },
+  {
+   "term": "Gross Floor Area",
+   "words": [
+    "gross floor area",
+    "GFA",
+    "floor area"
+   ],
+   "plain": "All the floor area of every level, above and below ground, measured to the outside of the walls.",
+   "official": "Gross Floor Area means the sum of the total area of each floor level of a building, above and below the ground, measured from the exterior of the main wall of each floor level.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(320)"
+  },
+  {
+   "term": "Lot Coverage",
+   "words": [
+    "lot coverage",
+    "coverage"
+   ],
+   "plain": "How much of your lot is covered by buildings or structures, seen from above.",
+   "official": "Lot Coverage means the portion of the lot that is covered by any part of any building or structure on or above the surface of the lot.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(435)"
+  },
+  {
+   "term": "Lot Frontage",
+   "words": [
+    "lot frontage",
+    "frontage"
+   ],
+   "plain": "How wide your lot is, measured across at the required front setback line (not at the street).",
+   "official": "Lot Frontage means the horizontal distance between the side lot lines of a lot, or the projection of the side lot lines, measured along a straight line drawn perpendicular to the lot centreline at the required minimum front yard setback.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(445)"
+  },
+  {
+   "term": "Lot Depth",
+   "words": [
+    "lot depth"
+   ],
+   "plain": "How deep your lot is, from the front lot line to the back lot line, along the middle of the lot.",
+   "official": "Lot Depth means the horizontal distance between the front lot line and rear lot line of a lot, measured along the lot centreline.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(440)"
+  },
+  {
+   "term": "Lot Area",
+   "words": [
+    "lot area"
+   ],
+   "plain": "The total area inside your lot lines.",
+   "official": "Lot Area means the horizontal area within all the lot lines of a lot.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(425)"
+  },
+  {
+   "term": "Front Lot Line",
+   "words": [
+    "front lot line"
+   ],
+   "plain": "The edge of your lot along the street.",
+   "official": "Front Lot Line means the lot line or contiguous lines dividing a lot from a street.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(275)"
+  },
+  {
+   "term": "Rear Lot Line",
+   "words": [
+    "rear lot line",
+    "back lot line"
+   ],
+   "plain": "The edge of your lot opposite the street.",
+   "official": "Rear Lot Line means in the case of: (A) a square or rectangular lot, the lot line opposite the front lot line; (B) a three-sided lot, the point where two lot lines meet furthest from the front lot line; or (C) any other type of lot, the furthest lot line opposite the front lot line, including any contiguous line adjoining it at an angle of less than 45 degrees.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(645)"
+  },
+  {
+   "term": "Side Lot Line",
+   "words": [
+    "side lot line"
+   ],
+   "plain": "Any edge of your lot that isn't the front or the back.",
+   "official": "Side Lot Line means any lot line other than a front lot line or a rear lot line.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(765)"
+  },
+  {
+   "term": "Main Wall",
+   "words": [
+    "main wall"
+   ],
+   "plain": "Any outside wall of a building that holds up a roof over an enclosed space.",
+   "official": "Main Wall means any exterior wall of a building or structure, including all structural members essential to the support of a roof over a fully or partly enclosed area.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(455)"
+  },
+  {
+   "term": "Front Yard",
+   "words": [
+    "front yard"
+   ],
+   "plain": "The area between the street edge of your lot and the front of the house, across the full width.",
+   "official": "Front Yard means the area on a lot, (A) between the front lot line and all front main walls of the building, and (B) extending parallel to the front lot line across the full width of the lot from the point where the front main wall of the building meets the building's side main walls closest to the respective side lot lines.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(285)"
+  },
+  {
+   "term": "Rear Yard",
+   "words": [
+    "rear yard",
+    "back yard"
+   ],
+   "plain": "The area between the back of the house and the back edge of the lot, across the full width.",
+   "official": "Rear Yard means the area on a lot, (A) between the rear lot line and all rear main walls of the building, and (B) extending parallel to the rear lot line across the full width of the lot from the point where the rear main wall of the building meets the building's side main walls closest to the respective side lot lines.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(650)"
+  },
+  {
+   "term": "Side Yard",
+   "words": [
+    "side yard"
+   ],
+   "plain": "The strip beside the house, between the front yard and the back yard.",
+   "official": "Side Yard means the area on a lot that extends between the front yard and the rear yard of the lot, between the side lot lines and the building's side main walls respectively facing the side lot lines.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(770)"
+  },
+  {
+   "term": "Building Setback",
+   "words": [
+    "setback"
+   ],
+   "plain": "How far a wall is from a lot line, measured straight out from the line.",
+   "official": "Building Setback means a horizontal distance measured at a right angle from any lot line to the nearest part of the main wall of a building or structure.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(110)"
+  },
+  {
+   "term": "Front Yard Setback",
+   "words": [
+    "front setback",
+    "front yard setback"
+   ],
+   "plain": "How far the front wall of the house is from the front lot line.",
+   "official": "Front Yard Setback means a horizontal distance on a lot measured at a right angle from the front lot line to the nearest main wall of a building or structure.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(290)"
+  },
+  {
+   "term": "Rear Yard Setback",
+   "words": [
+    "rear setback",
+    "rear yard setback"
+   ],
+   "plain": "How far the back wall of the house is from the back lot line.",
+   "official": "Rear Yard Setback means a horizontal distance on a lot measured at a right angle from the rear lot line to the nearest main wall of a building or structure.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(655)"
+  },
+  {
+   "term": "Side Yard Setback",
+   "words": [
+    "side setback",
+    "side yard setback"
+   ],
+   "plain": "How far the side wall of the house is from the side lot line.",
+   "official": "Side Yard Setback means a horizontal distance on a lot measured at a right angle from the side lot lines to the nearest main wall of a building or structure.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(775)"
+  },
+  {
+   "term": "Storey",
+   "words": [
+    "storey",
+    "storeys"
+   ],
+   "plain": "One level of a building. A basement doesn't count as a storey.",
+   "official": "Storey means a level of a building, other than a basement, located between any floor and the floor, ceiling or roof immediately above it.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(820)"
+  },
+  {
+   "term": "Basement",
+   "words": [
+    "basement"
+   ],
+   "plain": "A level that's mostly below the ground (below established grade).",
+   "official": "Basement means any part of a building where the elevation of the midpoint between the lowest part of a floor and the bottom of the joists directly above it is lower than the elevation of: (A) established grade in the Residential Zone category and the Residential Apartment Zone category; and (B) in all other zone categories, the average elevation of the ground along the front lot line.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(80)"
+  },
+  {
+   "term": "Building Depth",
+   "words": [
+    "building depth"
+   ],
+   "plain": "How far the house goes back, measured from the required front setback line to its back wall.",
+   "official": "Building Depth means the horizontal distance between the front yard setback required on a lot and the portion of the building's rear main wall furthest from the required front yard setback, measured along a line that is perpendicular to the front yard setback line.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(100)"
+  },
+  {
+   "term": "Building Length",
+   "words": [
+    "building length"
+   ],
+   "plain": "How long the house is, from its front wall to its back wall, along the middle of the lot.",
+   "official": "Building Length means the horizontal distance between the portion of the front main wall of a building on a lot closest to the front lot line, and the portion of the rear main wall of the building closest to the rear lot line, measured along the lot centreline. If the main walls are not intersected by the lot centreline, the measurement is from the point on the lot centreline where a line drawn perpendicular to the lot centreline connects with the main wall.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(105)"
+  },
+  {
+   "term": "Garden Suite",
+   "words": [
+    "garden suite"
+   ],
+   "plain": "A small separate home in the back yard, in its own building, on a lot that doesn't touch a lane.",
+   "official": "Garden Suite means a self-contained living accommodation for a person or persons living together as a separate single housekeeping unit, in which both food preparation and sanitary facilities are provided for the exclusive use of the occupant(s) of the suite and is in an ancillary building not abutting a lane. A laneway suite is not a garden suite.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(303)"
+  },
+  {
+   "term": "Laneway Suite",
+   "words": [
+    "laneway suite"
+   ],
+   "plain": "A small separate home in its own building at the back of a lot that touches a public lane.",
+   "official": "Laneway Suite means a self-contained living accommodation for a person or persons living together as a separate single housekeeping unit, in which both food preparation and sanitary facilities are provided for the exclusive use of the occupants of the suite and is in an ancillary building abutting a lane. A garden suite is not a laneway suite.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(402)"
+  },
+  {
+   "term": "Secondary Suite",
+   "words": [
+    "secondary suite",
+    "basement apartment"
+   ],
+   "plain": "A second, self-contained home inside a house, with its own kitchen and bathroom.",
+   "official": "Secondary Suite means self-contained living accommodation for an additional person or persons living together as a separate single housekeeping unit, in which both food preparation and sanitary facilities are provided for the exclusive use of the occupants of the suite, located in and subordinate to a dwelling unit.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(735)"
+  },
+  {
+   "term": "Ancillary",
+   "words": [
+    "ancillary",
+    "accessory building"
+   ],
+   "plain": "Smaller and secondary to the main use, like a shed or garage that serves the house.",
+   "official": "Ancillary means naturally and normally incidental, subordinate in purpose or floor area, and exclusively devoted to a permitted use, building or structure.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(30)"
+  },
+  {
+   "term": "Lane",
+   "words": [
+    "lane",
+    "laneway"
+   ],
+   "plain": "A public road behind or beside lots that isn't meant for through traffic.",
+   "official": "Lane means a public right-of-way that is not for general traffic circulation.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(400)"
+  },
+  {
+   "term": "Corner Lot",
+   "words": [
+    "corner lot"
+   ],
+   "plain": "A lot where two streets meet (or one street bends sharply).",
+   "official": "Corner Lot means a lot situated, (A) at the intersection of two or more streets having an interior angle of intersection of 135 degrees or less, or (B) where one street bends to create an interior angle of 135 degrees or less.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(150)"
+  },
+  {
+   "term": "Through Lot",
+   "words": [
+    "through lot"
+   ],
+   "plain": "A lot with a street at both the front and the back (and it isn't a corner lot).",
+   "official": "Through Lot means a lot, other than a corner lot, that abuts: (A) more than one street; or (B) one street in more than one location.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(855)"
+  },
+  {
+   "term": "Landscaping",
+   "words": [
+    "landscaping",
+    "landscaped"
+   ],
+   "plain": "Trees, plants, walkways and decorative stone. Driveways and parking areas don't count.",
+   "official": "Landscaping means an area used for trees, plants, decorative stonework, retaining walls, walkways, or other landscape or architectural elements. Driveways and areas for loading, parking or storing of vehicles are not landscaping.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(395)"
+  },
+  {
+   "term": "Soft Landscaping",
+   "words": [
+    "soft landscaping"
+   ],
+   "plain": "Landscaping that's growing: grass, plants, trees. Paving and stone don't count.",
+   "official": "Soft Landscaping means landscaping excluding hard-surfaced areas such as decorative stonework, retaining walls, walkways, or other hard-surfaced landscape-architectural elements.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(780)"
+  },
+  {
+   "term": "Dwelling Unit",
+   "words": [
+    "dwelling unit",
+    "unit",
+    "units"
+   ],
+   "plain": "One home: a place with its own kitchen and bathroom for one household.",
+   "official": "Dwelling Unit means living accommodation for a person or persons living together as a single housekeeping unit, in which both food preparation and sanitary facilities are provided for the exclusive use of the occupants of the unit.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(220)"
+  },
+  {
+   "term": "Driveway",
+   "words": [
+    "driveway"
+   ],
+   "plain": "The path cars use to get from the street or lane to a parking spot.",
+   "official": "Driveway means a passageway providing vehicle access between a street or lane and an area used for the parking, loading or storage of a vehicle.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(210)"
+  },
+  {
+   "term": "Major Street",
+   "words": [
+    "major street"
+   ],
+   "plain": "A street the City lists as a 'major street' on its policy map. Some rules are different on these streets.",
+   "official": "Major Street means any street identified as \"Major Streets\" on the Policy Areas Overlay Map found in Section 995.10. For the purpose of this definition, the phrase \"major street on the Policy Area Overlay Map\" has the same meaning as major street.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(457)"
+  },
+  {
+   "term": "Detached House",
+   "words": [
+    "detached house"
+   ],
+   "plain": "A house with one home in it, not attached to any other building.",
+   "official": "Detached House means a building that has one dwelling unit occupying the entire building.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(180)"
+  },
+  {
+   "term": "Semi-Detached House",
+   "words": [
+    "semi-detached house"
+   ],
+   "plain": "A building with two homes side by side, sharing a wall.",
+   "official": "Semi-Detached House means a building that has two dwelling units, and no dwelling unit is entirely or partially above another.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(745)"
+  },
+  {
+   "term": "Detached Houseplex",
+   "words": [
+    "houseplex",
+    "detached houseplex"
+   ],
+   "plain": "One building on one lot with 2 to 4 homes in it.",
+   "official": "Detached Houseplex means a building that has multiple dwelling units, and where: (A) the building has no more than four dwelling units; (B) the building is situated entirely on one lot; (C) the building is not attached to a building on an abutting lot; and (D) at least one dwelling unit is entirely or partially above another. (E) Detached houseplex includes the following types of building : a duplex, triplex or fourplex that complies with (A) to (D) above. (F) A detached house, semi-detached house or townhouse that has one or more secondary suites is not a detached houseplex.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(181)"
+  },
+  {
+   "term": "Duplex",
+   "words": [
+    "duplex"
+   ],
+   "plain": "A building with two homes, one above the other.",
+   "official": "Duplex means a building that has two dwelling units, with one dwelling unit entirely or partially above the other. A detached house that has a secondary suite, is not a duplex. A duplex may be a type of detached houseplex or semi-detached houseplex.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(215)"
+  },
+  {
+   "term": "Triplex",
+   "words": [
+    "triplex"
+   ],
+   "plain": "A building with three homes, at least one above another.",
+   "official": "Triplex means a building that has three dwelling units, with at least one dwelling unit entirely or partially above another. A detached house, semi-detached house or townhouse that has one or more secondary suites is not a triplex. A triplex may be a type of detached houseplex or semi-detached houseplex.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(875)"
+  },
+  {
+   "term": "Fourplex",
+   "words": [
+    "fourplex"
+   ],
+   "plain": "A building with four homes, at least one above another.",
+   "official": "Fourplex means a building that has four dwelling units, with at least one dwelling unit entirely or partially above another. A detached house, semi-detached house or townhouse that has one or more secondary suites is not a fourplex. A fourplex may be a type of detached houseplex or semi-detached houseplex.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(265)"
+  },
+  {
+   "term": "Townhouse",
+   "words": [
+    "townhouse"
+   ],
+   "plain": "Three or more homes side by side, none above another.",
+   "official": "Townhouse means a building that has three or more dwelling units, and no dwelling unit is entirely or partially above another. A detached house or semi-detached house that has one or more secondary suites is not a townhouse. A detached houseplex or two semi-detached houseplexes is not a townhouse.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(865)"
+  },
+  {
+   "term": "Bedroom",
+   "words": [
+    "bedroom"
+   ],
+   "plain": "A room with a window (or other natural light) used mainly for sleeping.",
+   "official": "Bedroom means a room in a dwelling unit containing a window or alternative source of natural light, primarily used or designed for use for sleeping. A dwelling room in a multi-tenant house is not a bedroom.",
+   "source": "Zoning By-law 569-2013, Chapter 800, 800.50(83)"
+  },
+  {
+   "term": "FSI (floor space index)",
+   "words": [
+    "FSI",
+    "floor space index",
+    "density"
+   ],
+   "plain": "Total floor area ÷ lot area. FSI 0.6 on a 400 m² lot allows 240 m² of floor area.",
+   "official": "",
+   "source": "The 'd' (density) value on the zone label, e.g. RD (d0.6); limits in 10.10.40.40 and 10.20.40.40"
+  },
+  {
+   "term": "Building height",
+   "words": [
+    "height",
+    "building height"
+   ],
+   "plain": "Measured from established grade up to the highest point of the building.",
+   "official": "",
+   "source": "By-law 569-2013, 10.5.40.10 (rule G-01 in this tool)"
+  },
+  {
+   "term": "Platform",
+   "words": [
+    "platform",
+    "platforms",
+    "deck",
+    "balcony"
+   ],
+   "plain": "The zoning by-law's word for decks, balconies, porches and similar flat outdoor floors.",
+   "official": "",
+   "source": "By-law 569-2013, 10.5.40.50 and 10.5.40.60"
+  },
+  {
+   "term": "Overlay (HT, ST, coverage)",
+   "words": [
+    "overlay",
+    "HT",
+    "ST"
+   ],
+   "plain": "Extra limits drawn on the City's zoning maps, like the height limit (HT) or storey limit (ST) for your street.",
+   "official": "",
+   "source": "By-law 569-2013, Chapter 995 (overlay maps)"
+  },
+  {
+   "term": "Minor variance",
+   "words": [
+    "minor variance",
+    "variance"
+   ],
+   "plain": "Permission from the Committee of Adjustment to break a zoning rule by a small amount.",
+   "official": "",
+   "source": "Planning Act, s. 45(1)"
+  },
+  {
+   "term": "Encroachment",
+   "words": [
+    "encroach",
+    "encroachment",
+    "sticks out"
+   ],
+   "plain": "When part of a building (stairs, eaves, a porch) is allowed to stick into a setback space.",
+   "official": "",
+   "source": "By-law 569-2013, 10.5.40.60"
+  }
+ ]
+}
