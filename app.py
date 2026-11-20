@@ -119,11 +119,15 @@ class Handler(BaseHTTPRequestHandler):
         self.send({"error": "not found"}, status=404)
 
     def visitor(self):
-        """Who is asking, for the per-visitor AI limit. On the host, the real address is the last one
-        the host's front door added to X-Forwarded-For (earlier ones can be made up by the visitor)."""
-        fwd = self.headers.get("X-Forwarded-For", "")
-        if PUBLIC and fwd:
-            return fwd.split(",")[-1].strip()
+        """Who is asking, for the per-visitor AI limit. On the host, visitors come through Render's front door
+        (Cloudflare), which puts the visitor's real address in CF-Connecting-IP (a visitor can't fake it there)."""
+        if PUBLIC:
+            for h in ("CF-Connecting-IP", "True-Client-IP"):
+                if self.headers.get(h):
+                    return self.headers[h].strip()
+            fwd = self.headers.get("X-Forwarded-For", "")
+            if fwd:
+                return fwd.split(",")[0].strip()
         return self.client_address[0]
 
     def ai(self, feature, body):
