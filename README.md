@@ -206,6 +206,9 @@ The notes at the top of `checker/ai_hooks.py` say where each one plugs in.
 
 ## 6. The public website (GitHub + Render)
 
+- **Live site:** https://toronto-permit-checker.onrender.com
+- **Code:** https://github.com/kavya12274/toronto-permit-checker
+
 The code is on GitHub, and Render (a free host) runs it as a public website. `render.yaml` tells Render how.
 
 - **Your API key is never on GitHub.** `.gitignore` keeps `.env` out. On Render, the key is a secret setting
@@ -217,6 +220,7 @@ The code is on GitHub, and Render (a free host) runs it as a public website. `re
   - The free host forgets these counts when it restarts, so the **$5 credit with auto-reload OFF** on
     console.anthropic.com stays the real hard limit.
 - **Projects** are saved in each visitor's own browser, so nobody sees anyone else's.
-- **Updating the site:** change the code, then in GitHub Desktop: Commit → Push. Render rebuilds by itself in a few minutes.
+- **Updating the site:** push the change to GitHub, then on dashboard.render.com open toronto-permit-checker →
+  Manual Deploy → Deploy latest commit (about a minute). Render was set up from the public link, so it doesn't rebuild by itself.
 - The free plan sleeps after 15 minutes with no visitors, so the first visit after that takes about a minute to wake up.
 - Not on GitHub (kept on your computer): `.env`, your AI spending record, your voice recording and the demo video.

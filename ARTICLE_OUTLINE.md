@@ -121,7 +121,7 @@ Group them so it doesn't read like a list. One or two lines each.
 - **Data trap:** the first permit stats made garden suites look super fast (24 days in 2026), because slow permits were still open and missing from the data. Adding the active-permits data fixed it.
 - **Disagreements between the workbook and the rules** were flagged, not changed (e.g. a 15 m² shed matches two opposite rules).
 
-## 10. From my laptop to a real link (fill in after we publish)
+## 10. From my laptop to a real link
 - Last time: Pyodide + Netlify, so everything ran in the browser.
 - This time is different, because the AI needs a secret key that can't go in the browser. It needs a real server that keeps the key hidden.
 - Projects still save in each visitor's own browser, so nobody sees anyone else's.
@@ -131,7 +131,10 @@ Group them so it doesn't read like a list. One or two lines each.
   - the $5 credit with auto-reload off is still the real hard limit (the free host forgets its counts when it restarts)
 - The key lives in the host's secret settings, never in the code on GitHub. Before publishing, I scanned every file for keys and personal info.
 - Free hosting trade-off: the site sleeps when nobody uses it, so the first visit takes about a minute.
-- Add the link + how it felt when it went live.
+- **The link:** https://toronto-permit-checker.onrender.com (code: github.com/kavya12274/toronto-permit-checker)
+- Testing found one more bug after it went live: the per-visitor limit wasn't counting, because the host passes visitors' addresses differently than on my laptop. Fixed and re-tested (and a faked address gets blocked).
+- First live AI request cost $0.0008.
+- How it felt when it went live: (your words)
 
 ## 11. Limitations and ethics
 - **Not an approval.** Only the City can confirm zoning or issue a permit.
